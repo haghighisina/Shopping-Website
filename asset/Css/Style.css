@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto+Condensed|Ubunto');
+body{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Lato';
+}
+.navbar-brand {
+    font-family: 'Pacifico';
+    font-size: 35px;
+    color: lightcoral; !important;
+}
+.navbar-nav .navbar-item .nav-link {
+    font-size: 16px;
+    margin: 15px;
+    color: #000000; !important;
+    font-family: 'Roboto Condensed';
+}
+.title-text{
+    font-size: 16px;
+    margin: 15px;
+    color: #000000; !important;
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
+}
+.navbar-nav .navbar-item .nav-link:hover{
+    color: #00E8E8;!important;
+}
+.navbar-nav .navbar-item #nav-link{
+    color: #00E8E8;!important;
+}
+#navbarMenu{
+    padding-right: 400px;
+}
+.menu-right-btn{
+    padding: 7px 30px;
+    background-color: transparent;
+    transition: all 600ms ease-in;
+    border-radius: 5px;
+    position: absolute;
+    border: 1px solid #00E8E8;
+    right: 10px;
+    bottom: 8px;
+    margin-left: 25%;
+}
+.form-inline .btn-search{
+   background-color: transparent;
+   border: 1px solid #00E8E8;
+   margin-left: 1%;
+   transition: all 600ms ease-in;
+}
+.form-inline .btn-search:hover{
+    color: white;
+    background-color: #00E8E8;
+}
+.form-inline{
+    position: absolute;
+    right: 60px;
+}
+.menu-right-btn:hover{
+    color: white;
+    background-color: #00E8E8;
+}
+.site-content{
+    background-image: url("../image/1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.site-title, .site-desc{
+    color: white;
+    font-family: 'Righteous';
+}
+.site-title{
+    margin-top: 30%;
+    margin-bottom: 6%;
+    font-size: 50px;
+}
+.site-desc{
+    font-size: 14px;
+    padding-left: 15%;
+}
+.site-btn1{
+    margin-left: 20%;
+    background-color: black;
+    color: white;
+}
+.site-btn2{
+    background-color: white;
+}
+.site-btn1, .site-btn2{
+    margin-top: 5%;
+    margin-bottom: 40%;
+}
+/*Section 1*/
+.section-1 .heading-1{
+    margin-top: 8%;
+}
+.section-1 .heading-2{
+    margin-bottom: 5%;
+    font-size: 39px;
+}
+.section-1 .para-1{
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+.section-1 .card-text{
+    color: rgba(0,0,0,0.59);
+}
+.section-1 .product-text{
+    height: 100%;
+    border: 1px solid #b3b0b0;
+}
+.section-1{
+    margin-bottom: 8%;
+}
+.card {
+    width: 20rem;
+}
+/*Section 2*/
+.section-2 .container-fluid {
+    background-image: url("../image/5.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.section-2 .heading-1{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: Righteous;
+    color: white;
+}
+.section-2 .para-1{
+    color: white;
+    font-family: Ubuntu;
+}
+.section-2 ol li{
+    color: white;
+    font-family: Ubuntu;
+}
+/* Sction 3 */
+.section-3{
+    margin-top: 6%;
+}
+.section-3 i{
+    color: #013c7a;
+}
+.section-3 p{
+    color: rgba(0,0,0,0.59);
+}
+/*Section 4 */
+.section-4{
+    margin-top: 8%;
+}
+.section-4 .row .col-md-7, .col-md-5{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.section-4 a{
+    color: #024fa0;
+    font-size: 30px;
+    text-decoration: none;
+}
+.section-4 .para-1{
+    color: whitesmoke;
+    font-family: "Roboto Condensed";
+    margin-top: 7%;
+    font-size: 25px;
+}
+footer .col-md-6{
+    align-content: center;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    border: 1px solid #9b9a9a;
+    border-radius: 5px;
+}
+footer .form-group{
+    margin-top: 2%;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+}
+.d-flex{
+    margin-top: 2%;
+    margin-right: 3%;
+}
+.cart-checkout{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.zoom:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+}
+@media screen and (max-width: 768px) {
+    .section-1 .card{
+        width: 14rem;
+    }
+    .section-4 .col-md-7 img{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 100px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 411px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 150px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 414px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 150px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+}
+@media screen and (max-width: 280px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 70px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 985px) {
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 70px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 320px){
+    .site-content .site-title{
+        font-size: 30px;
+        padding-left: 15%;
+    }
+    .site-content .site-btn2{
+        display: none;
+    }
+    .site-content .site-btn1{
+        margin-left: 15%;
+    }
+    .section-1 .heading-1 , .section-1 .heading-2{
+        font-size: 25px;
+    }
+    .section-1 .col-md-4{
+        padding: 5%;
+        margin-left: 16%;
+    }
+    .section-1 .card{
+        width: 15rem;
+    }
+    .section-4 .col-md-5{
+        padding: 0px 15px;
+    }
+    .section-4 img{
+        margin-right: 15%;
+        margin: auto;
+    }
+    .form-inline{
+        position: absolute;
+        right: 80px;
+        bottom: 15px;
+    }
+    .form-inline .search-bar{
+        width: 80px;
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .section-4 img{
+        width: 100%;
+    }
+}
+.card-footer .btn{
+    padding: 5px 30px;
+    margin: 2px;
+}
+.card-footer .form-inline{
+    margin-right: 25%;
+}
+.card-footer form{
+    margin-left: 50%;
+}
+.d-flex .clear-cart{
+    margin-right: 1.5%;
+}
+
+
+
+
+
+
