@@ -30,13 +30,16 @@ if (isServer("login.php")){
             $responseKey = $_POST['g-recaptcha-response'];
             $userIP = $_SERVER['REMOTE_ADDR'];
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
-
             $hasErrors = count($errors) > 0;
             if (false === $hasErrors) {
                 if (0 === count($errors)) {
-                    $_SESSION['userId'] = (int)$userData['id'];
-//              $_SESSION['username'] = (int)$userData['username'];
-                    setcookie('userId', $_SESSION['userId'], strtotime('+30 days'), '/');
+                    session_regenerate_id(true);
+                    $userID = getCurrentUserId();
+                    ChangeUserId($userID,$userData['id']);
+                    ChangeUserIdForCart($userID,$userData['user_id']);
+                    $userInfo = getUserDataForUsername($username);
+                    $userNewID = (int)$userInfo['user_id'];
+                    setcookie('userId',$userNewID, strtotime('+30 days'), '/');
                     notificationMessage('Welcome back '.$userData['username']);
                     header("location: index.php");
                     exit();

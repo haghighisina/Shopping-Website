@@ -17,7 +17,6 @@ function isServer($base){
        };
     }
     return $base;
-
 }
 function getRandomHash(int $length):string{
     $randomInt = random_int(0, time());
