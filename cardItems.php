@@ -15,11 +15,11 @@ $products = getAllProduct();
                     <?= $product['description']; ?><hr> $ <?= convertToMoney($product['price']); ?>
                 </div>
                 <div class="card-footer">
-                    <form action="description.php" method="post" class="form-inline">
+                    <form action="description.php" method="POST" class="form-inline">
                         <input type="hidden" name="product_id" value="<?=$product['id']?? 1;?>">
                         <button type="submit" name="submit" class="btn btn-primary mx-3 btn-sm">Description</button>
                     </form>
-                    <form method="post" action="<?= escape($_SERVER['PHP_SELF']);?>" class="align-content-end">
+                    <form method="POST" action="<?= escape($_SERVER['PHP_SELF']);?>" class="align-content-end">
 <!--                    <a href="--><?php //printf("%s?id=%s&name=%s&product_price=%s",
 //                    'cardItems.php',$product['id'], $product['title'], $product['price']);?><!--"-->
 <!--                    class="btn btn-success btn-sm ml-2 px-4">Cart</a>-->

@@ -3,17 +3,17 @@ function isPost():bool{
     return strtoupper($_SERVER['REQUEST_METHOD'] === 'POST');
 }
 function escape(string $value):string{
-    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    return trim(htmlspecialchars($value, ENT_QUOTES, 'UTF-8'));
 }
 function isLoggedIn():bool{
-    return isset($_COOKIE['userId']);
+    return isset($_SESSION['logged_in']);
 }
-function isServer($base){
+function isServer($base):bool{
     if(!defined("SITE_URL")) define("SITE_URL","localhost/Shopping-Cart");
     if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
     if($_SERVER['HTTP_HOST'] == SITE_URL){
        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
-           return $base;
+           return true;
        };
     }
     return $base;

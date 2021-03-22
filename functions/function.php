@@ -2,7 +2,7 @@
 function changeUser(string $username, string $password, string $email, int $userId){
     $password = password_hash($password, PASSWORD_DEFAULT);
     $sql = "UPDATE user SET username= :Username, password= :Password, email= :Email 
-            WHERE id= :UserId";
+            WHERE user_id= :UserId";
     $statement = getDb()->prepare($sql);
     $data = [
         ':Username' => $username,

@@ -6,7 +6,6 @@ if (isServer("login.php")){
             $hasErrors = false;
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
             $password = filter_input(INPUT_POST, 'password');
-
             if (false === (bool)$username) {
                 $errors[] = "Name is empty";
             }
@@ -30,6 +29,9 @@ if (isServer("login.php")){
             $responseKey = $_POST['g-recaptcha-response'];
             $userIP = $_SERVER['REMOTE_ADDR'];
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
+            if (!isToken($_POST['token'])) {
+                $errors[] = "The Token is invalid";
+            }
             $hasErrors = count($errors) > 0;
             if (false === $hasErrors) {
                 if (0 === count($errors)) {
@@ -39,6 +41,7 @@ if (isServer("login.php")){
                     ChangeUserIdForCart($userID,$userData['user_id']);
                     $userInfo = getUserDataForUsername($username);
                     $userNewID = (int)$userInfo['user_id'];
+                    $_SESSION['logged_in'] = (int)$userInfo['user_id'];
                     setcookie('userId',$userNewID, strtotime('+30 days'), '/');
                     notificationMessage('Welcome back '.$userData['username']);
                     header("location: index.php");

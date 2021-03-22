@@ -20,8 +20,9 @@ function getUserDataForUsername(string $username):array{
     $statement->execute($data);
     if (0 === $statement->rowCount()){
         return [];
+    }elseif($statement->rowCount()==1){
+        $row = $statement->fetch();
     }
-    $row = $statement->fetch();
     return $row;
 }
 function ChangeUserId($userID,$ID){
@@ -78,4 +79,14 @@ function createAcocount(string $username, string $password, int $userId, string 
     $statement->execute($data);
     $rowCount = $statement->rowCount();
     return $rowCount > 0;
+}
+function CreateToken(){
+    return $_SESSION['token'] = base64_encode(md5(microtime()));
+}
+function isToken($token):bool{
+    if (isset($_SESSION['token']) && $token==$_SESSION['token']){
+        unset($_SESSION['token']);
+        return true;
+    }
+    return false;
 }

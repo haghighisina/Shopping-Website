@@ -24,7 +24,8 @@ if (isLoggedIn()):?>
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control font-weight-bold" placeholder="Email">
             </div>
-            <button  type="submit" name="submit" class="form-control mt-2 mb-2 btn btn-primary font-weight-bold">Submit</button>
+            <input type="hidden" name="token" value="<?= CreateToken() ;?>">
+            <button  type="submit" name="submit" onclick="return confirm('Are you sure')" class="form-control mt-2 mb-2 btn btn-primary font-weight-bold">Submit</button>
         </form>
     </div>
 <?php endif;?>

@@ -14,7 +14,7 @@ function getDb(){
     try {
         $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD,$options);
     } catch (PDOException $e) {
-        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());//$e->__toString();
     }
     return $db;
 }

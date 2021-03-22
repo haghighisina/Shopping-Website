@@ -22,6 +22,7 @@ require_once __DIR__.'/functions/login.php';
         </div>
         <div class="g-recaptcha" data-sitekey="6LdsrtgZAAAAAJn9era88xaoM9DAJ8-1XPJvpfkC"></div>
         <script src="https://www.google.com/recaptcha/api.js"></script>
+        <input type="hidden" name="token" value="<?= CreateToken() ;?>">
         <button type="submit" name="submit" class="mb-3 form-control btn btn-primary">Continue</button>
     </form>
 </div>
