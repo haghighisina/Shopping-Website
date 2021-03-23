@@ -6,8 +6,8 @@
                     <h1 class="site-title">Title</h1>
                     <p class="site-desc">Hello to your online shopping website </p>
                     <div class="d-flex flex-row">
-                        <input type="button" value="Buy Product" class="btn site-btn1 px-4 py-3 mr-4 btn-dark">
-                        <input type="button" value="Features" class="btn site-btn2 px-4 py-3 mx-4 mr-4 btn-light">
+                        <a href="carditems.php" type="button" value="Buy Product" class="btn site-btn1 px-4 py-3 mr-4 btn-dark">Buy Product</a>
+                        <a href="#" type="button" value="Features" class="btn site-btn2 px-4 py-3 mx-4 mr-4 btn-light">Features</a>
                     </div>
                 </div>
             </div>

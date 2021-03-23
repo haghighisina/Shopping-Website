@@ -19,7 +19,7 @@ $allProducts = getCartAllItemsForUserId($userId);?>
                class="product_id btn btn-danger btn-sm " onclick="return confirm('Are you sure') ">Delete</a>
         </div>
         <div class="col-2">
-            <form action="shopping_cart.php" method="post" class="MyClass">
+            <form action="<?= escape($_SERVER['PHP_SELF']);?>" method="POST" class="MyClass">
                 <input type="hidden" name="productPrice" value="<?= $product['price'];?>">
                 <input type="hidden" name="productId" value="<?= $product['product_id'];?>">
                 <input type="number" name="itemQuantity" class="form-control w-100" max="10" value="<?= $product['quantity'];?>">

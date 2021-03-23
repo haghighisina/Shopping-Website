@@ -7,7 +7,7 @@ require_once __DIR__.'/functions/register.php';
 </style>
 <div class="container w-25 form-group mt-5 border rounded">
     <h3 class="text-left mt-3 mb-3">Create account</h3>
-    <form action="" method="post">
+    <form action="<?= escape($_SERVER['PHP_SELF']) ;?>" method="POST">
         <?php if ($hasErrors ?? ''):?>
             <div class="alert alert-danger" role="alert">
                 <?php foreach ($errors as $errorMessage):?>

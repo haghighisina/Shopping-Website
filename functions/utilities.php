@@ -8,9 +8,9 @@ function escape(string $value):string{
 function isLoggedIn():bool{
     return isset($_SESSION['logged_in']);
 }
+if(!defined("SITE_URL")) define("SITE_URL","localhost/Shopping-Cart");
+if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
 function isServer($base):bool{
-    if(!defined("SITE_URL")) define("SITE_URL","localhost/Shopping-Cart");
-    if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
     if($_SERVER['HTTP_HOST'] == SITE_URL){
        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
            return true;

@@ -31,8 +31,7 @@ function countProductsInCart(?int $userId):int{
     }
     $data = [':userId'=>$userId];
     $cartResult->execute($data);
-    $cartItems = $cartResult->fetchColumn();
-    return $cartItems;
+    return $cartItems = $cartResult->fetchColumn();
 }
 function ifProductExistInCart(int $userId, int $product_id){
     $sql = "SELECT product_id FROM cart WHERE user_id= :UserID AND product_id= :ProductId";

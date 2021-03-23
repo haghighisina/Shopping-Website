@@ -8,14 +8,14 @@ $products = getAllProduct();
 <div class="card-group">
     <?php foreach ($products as $product):;?>
         <div class="col-sm-4 col-md-3 mt-5">
-            <div class="card zoom">
+            <div class="card">
                 <div class="card-title text-center"><?= $product['title']; ?></div>
-                <img class="card-img-top" src="<?= $product['pic']; ?>" alt="Card image cap">
+                <img class="card-img-top zoom" src="<?= $product['pic']; ?>" alt="Card image cap">
                 <div class="card-body">
                     <?= $product['description']; ?><hr> $ <?= convertToMoney($product['price']); ?>
                 </div>
                 <div class="card-footer">
-                    <form action="description.php" method="POST" class="form-inline">
+                    <form action="<?= escape('description.php') ;?>" method="POST" class="form-inline">
                         <input type="hidden" name="product_id" value="<?=$product['id']?? 1;?>">
                         <button type="submit" name="submit" class="btn btn-primary mx-3 btn-sm">Description</button>
                     </form>
@@ -27,12 +27,11 @@ $products = getAllProduct();
                         <input type="hidden" name="product_name" value="<?=$product['title']??'product-1';?>">
                         <input type="hidden" name="product_price" value="<?=$product['price']??'60000';?>">
                         <?php if (ifProductExistInCart($userId, $product['id'])):;?>
-                        <button type="button" name="submit" class="btn btn-danger mx-3 btn-sm">In cart</button>
+                        <button type="submit" name="in_cart" class="btn btn-danger mx-3 btn-sm">In cart</button>
                         <?php else:;?>
                         <button type="submit" name="submit" class="btn btn-success mx-3 btn-sm">Submit</button>
                         <?php endif;?>
                     </form>
-
                 </div>
             </div>
         </div>

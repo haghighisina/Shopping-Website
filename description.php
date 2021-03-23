@@ -1,13 +1,12 @@
-<?php require_once __DIR__.'/includes.php';
+<?php session_start();
+require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
-
 if (isPost()){
-if (isset($_POST['submit'])) {
-    $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
-    $products = getSearchProduct($product_id);
-  }
-}
-?>
+    if (isset($_POST['submit'])) {
+        $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
+        $products = getSearchProduct($product_id);
+      }
+}?>
 <div class="container justify-content-center d-flex">
     <?php foreach ($products as $product):;?>
         <div class="col-sm-4 col-md-3 mt-5">
