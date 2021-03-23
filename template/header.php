@@ -14,6 +14,7 @@
 $userId = getCurrentUserId();
 $cartItems = countProductsInCart($userId);
 $cartSum = getCartSum($userId);
+checkQueryString();
 ?>
 
 

@@ -69,4 +69,12 @@ function emailValidate(string $email):bool{
      };
      return $email;
 }
-
+function checkQueryString(){
+    $query_string = $_SERVER['QUERY_STRING'];
+    $list = array("script","<",">","'","or","document","hack","cookie","alert","%3E","%3C","%27");
+    foreach ($list as $key) {
+        if (strpos($query_string, $key)){
+            die("URL Error");
+        }
+    }
+}
