@@ -30,25 +30,38 @@
                 Hello to your online shopping website Hello to your online shopping website
                 Hello to your online shopping website Hello to your online shopping website
             </p>
-            <div class="row justify-content-center text-center mt-5">
-                <div class="col-md-4">
-                    <div class="card" style="width: 20rem;">
-                        <img src="asset/image/2.jpg" class="card-img-top img-fluid">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 20rem;">
-                        <img src="asset/image/3.jpg" class="card-img-top img-fluid">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 20rem;">
-                        <img src="asset/image/4.jpg" class="card-img-top img-fluid">
+        </div>
+    </div>
+    <section>
+        <div class="justify-content-center text-center container">
+            <div class="row">
+                <div class="col">
+                    <div class="slider_container">
+                        <div class="owl-carousel owl-theme view_slider">
+                            <div class="owl-item">
+                                <div class="view_item d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="view_image"><img src="asset/image/2.jpg" class="card-img-top img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="view_item d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="view_image"><img src="asset/image/3.jpg" class="card-img-top img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="view_item d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="view_image"><img src="asset/image/4.jpg" class="card-img-top img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <section class="section-2">
         <div class="container-fluid">
             <div class="d-flex justify-content-center">

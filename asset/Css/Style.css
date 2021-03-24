@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto+Condensed|Ubunto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Rubik:300,400,500,700,900');
 body{
     padding: 0%;
     margin: 0%;
@@ -112,9 +113,6 @@ body{
 }
 .section-1{
     margin-bottom: 8%;
-}
-.card {
-    width: 20rem;
 }
 /*Section 2*/
 .section-2 .container-fluid {
@@ -318,6 +316,15 @@ footer .form-group{
 .d-flex .clear-cart{
     margin-right: 1.5%;
 }
+.slider_container{
+    margin-bottom: 5%;
+}
+.view_image{
+    width: 20rem;
+}
+
+
+
 
 
 

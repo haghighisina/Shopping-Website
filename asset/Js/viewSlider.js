@@ -1,0 +1,19 @@
+$(document).ready(function(){
+    if($('.view_slider').length){
+        var viewedSlider = $('.view_slider');
+        viewedSlider.owlCarousel({
+            loop:true,
+            autoplay:true,
+            autoplayTimeout:6000,
+            nav:false,
+            dots:false,
+            responsive:{
+                0:{items:1},
+                575:{items:2},
+                768:{items:2},
+                991:{items:2},
+                1199:{items:3}
+            }
+        });
+    }
+});
