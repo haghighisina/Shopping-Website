@@ -41,7 +41,6 @@ if (isServer("login.php")){
                     ChangeUserIdForCart($userID,$userData['user_id']);
                     $userInfo = getUserDataForUsername($username);
                     $userNewID = (int)$userInfo['user_id'];
-                    $_SESSION['logged_in'] = (int)$userInfo['user_id'];
                     setcookie('userId',$userNewID, strtotime('+30 days'), '/');
                     notificationMessage('Welcome back '.$userData['username']);
                     header("location: index.php");

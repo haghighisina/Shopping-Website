@@ -21,12 +21,11 @@
                     <a class="nav-link" href="shopping_cart.php">Cart</a>
                 </li>
                 <?php endif;?>
+                <?php if(!isLoggedIn()):?>
                 <li class="navbar-item">
-                    <?php if (!isLoggedIn()):?>
-                        <a class="nav-link menu-right-btn" href="login.php">Sign In</a>
-                    <?php endif;?>
+                    <a class="nav-link menu-right-btn" href="login.php">Sign In</a>
                 </li>
-                <?php if (isLoggedIn()):?>
+                <?php else:?>
                 <li class="navbar-item">
                     <a class="nav-link menu-right-btn" href="logout.php">Logout</a>
                 </li>

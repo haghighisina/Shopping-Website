@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="asset/Css/Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-    <title>Document</title>
+    <title>Sopping Website</title>
 </head>
 <body>
 <?php
@@ -17,6 +17,8 @@ $userId = getCurrentUserId();
 $cartItems = countProductsInCart($userId);
 $cartSum = getCartSum($userId);
 checkQueryString();
+isURI();
+fireWall();
 ?>
 
 

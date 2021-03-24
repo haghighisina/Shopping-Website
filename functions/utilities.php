@@ -6,9 +6,14 @@ function escape(string $value):string{
     return trim(htmlspecialchars($value, ENT_QUOTES, 'UTF-8'));
 }
 function isLoggedIn():bool{
-    return isset($_SESSION['logged_in']);
+    return isset($_COOKIE['userId']);
 }
-if(!defined("SITE_URL")) define("SITE_URL","localhost/Shopping-Cart");
+function isURI(){
+    if (strpos($_SERVER['REQUEST_URI'],'/',-1)) {
+        header('location: ' . SITE_URL . 'index.php');
+    }
+}
+if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
 if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){
@@ -75,6 +80,28 @@ function checkQueryString(){
     foreach ($list as $key) {
         if (strpos($query_string, $key)){
             die("URL Error");
+        }
+    }
+}
+function checkLogAttack($Ip, $details){
+    $sql = "INSERT INTO log SET ip= :IP, description= :Description";
+    $statement = getDb()->prepare($sql);
+    $details = addslashes(htmlentities($details));
+    $data = [':IP'=>$Ip,':Description'=>$details];
+    return $statement->execute($data);
+}
+function fireWall(){
+    $list = array("script","<",">","'","or","document","hack","cookie","alert","%3E","%3C","%27","../",);
+    $ip = htmlentities($_SERVER['REMOTE_ADDR']);
+    if (isset($_GET)) {
+        foreach ($_GET as $key => $value) {
+            foreach ($list as $keys => $values) {
+                if (preg_match("@$values@", $value)) {
+                    checkLogAttack($ip, "[$values]");
+                    header('location: ' . SITE_URL . 'index.php');
+                    die();
+                }
+            }
         }
     }
 }
