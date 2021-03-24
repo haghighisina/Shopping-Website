@@ -90,8 +90,8 @@ function checkLogAttack($Ip, $details){
     $data = [':IP'=>$Ip,':Description'=>$details];
     return $statement->execute($data);
 }
-function fireWall(){
-    $list = array("script","<",">","'","or","document","hack","cookie","alert","%3E","%3C","%27","../",);
+function FilterQueryString(){
+    $list = array("script","<",">","'","OR","document","hack","cookie","alert","%3E","%3C","%27","../",);
     $ip = htmlentities($_SERVER['REMOTE_ADDR']);
     if (isset($_GET)) {
         foreach ($_GET as $key => $value) {
