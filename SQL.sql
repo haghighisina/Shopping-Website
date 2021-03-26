@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 04:34 PM
+-- Generation Time: Mar 26, 2021 at 11:41 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -43,9 +43,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `product_name`, `product_price`, `product_id`, `quantity`, `created`) VALUES
-(145, 995205471, 'Product 2', 50000, 2, 1, '2021-03-19 19:50:32'),
-(146, 995205471, 'Product 3', 140000, 3, 1, '2021-03-19 19:55:31'),
-(147, 27350234, 'Product 1', 600000, 1, 10, '2021-03-19 20:01:15');
+(147, 27350234, 'Product 1', 600000, 1, 10, '2021-03-19 20:01:15'),
+(150, 524008909, 'Product 4', 360000, 4, 3, '2021-03-22 09:17:57');
 
 -- --------------------------------------------------------
 
@@ -66,13 +65,26 @@ CREATE TABLE `delivey_adresses` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `log`
+--
+
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
+  `ip` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `description` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `description` text CHARACTER SET utf8 NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` mediumtext NOT NULL,
   `price` int(11) NOT NULL DEFAULT 0,
   `pic` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -98,7 +110,7 @@ CREATE TABLE `user` (
   `username` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(512) NOT NULL
+  `email` varchar(512) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,8 +118,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `user_id`, `email`) VALUES
-(140, 'sina', '$2y$10$GNANEQ.Pt/hYUaoPTOf5I.i8JfWxsEv5bLVoXL4Gv/imIKahM2vJ2', 995205471, 'sina@gmail.com'),
-(142, 'mark', '$2y$10$F7vQm6A9fYeY50XkWwAdNOjzUnk2vpQMB3gTha7RIdptoeSvSWyUG', 27350234, 'mark@gmail.com');
+(140, 'sina', '$2y$10$4YOq7hFj9K7FysDZc4ToF.6Flfils/9vQivcfNnHqQKdBfWtOgpgy', 524008909, 'sina@gmail.com'),
+(142, 'mark', '$2y$10$F7vQm6A9fYeY50XkWwAdNOjzUnk2vpQMB3gTha7RIdptoeSvSWyUG', 27350234, 'mark@gmail.com'),
+(144, 'mona', '$2y$10$TmqX93z19IaGF3vK4x3ekeFWVt/Wju5GnOooy3SVq7ElkxsSvIiXO', 1114222518, 'mona@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -127,6 +140,12 @@ ALTER TABLE `cart`
 ALTER TABLE `delivey_adresses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_user_delivery_adresses` (`user_id`);
+
+--
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -149,13 +168,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT for table `delivey_adresses`
 --
 ALTER TABLE `delivey_adresses`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=622;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -167,7 +192,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- Constraints for dumped tables
