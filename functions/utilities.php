@@ -8,8 +8,12 @@ function escape(string $value):string{
 function isLoggedIn():bool{
     return isset($_COOKIE['userId']);
 }
-function isURI(){
-    if (strpos($_SERVER['REQUEST_URI'],'/',-1)) {
+function filterURL(){
+    if (strpos($_SERVER['REQUEST_URI'],"/",-1) ||
+        strpos($_SERVER['REQUEST_URI'],"?",+1) ||
+        !filter_var(trim(htmlspecialchars(addslashes($_SERVER['REQUEST_URI'])),"/"),FILTER_SANITIZE_URL) ||
+        !preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$_SERVER['REQUEST_URI']))
+        {
         header('location: ' . SITE_URL . 'index.php');
     }
 }
@@ -91,7 +95,7 @@ function checkLogAttack($Ip, $details){
     return $statement->execute($data);
 }
 function FilterQueryString(){
-    $list = array("script","<",">","'","OR","document","hack","cookie","alert","%3E","%3C","%27","../",);
+    $list = array("script","<",">","'","OR","document","hack","cookie","alert","%3E","%3C","%27","../");
     $ip = htmlentities($_SERVER['REMOTE_ADDR']);
     if (isset($_GET)) {
         foreach ($_GET as $key => $value) {

@@ -17,8 +17,9 @@ $userId = getCurrentUserId();
 $cartItems = countProductsInCart($userId);
 $cartSum = getCartSum($userId);
 checkQueryString();
-isURI();
+filterURL();
 FilterQueryString();
+
 ?>
 
 
