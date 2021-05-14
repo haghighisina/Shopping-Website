@@ -35,6 +35,7 @@ if (isServer("login.php")){
             $hasErrors = count($errors) > 0;
             if (false === $hasErrors) {
                 if (0 === count($errors)) {
+                    $_SESSION['userRights'] = $userData['userRights'];
                     session_regenerate_id(true);
                     $userID = getCurrentUserId();
                     ChangeUserId($userID,$userData['id']);

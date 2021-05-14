@@ -19,7 +19,6 @@ $cartSum = getCartSum($userId);
 checkQueryString();
 filterURL();
 FilterQueryString();
-
 ?>
 
 

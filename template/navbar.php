@@ -1,3 +1,4 @@
+<?php logData("INFO","Header PAGE",['user_id'=>$userId]);?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mx-3" href="index.php" style="color: #0c5460">Shopping <span style="color: #e0a800">Cart</span></a>

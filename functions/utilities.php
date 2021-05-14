@@ -1,6 +1,6 @@
 <?php /** @noinspection ALL */
 function isPost():bool{
-    return strtoupper($_SERVER['REQUEST_METHOD'] === 'POST');
+    return strtolower($_SERVER['REQUEST_METHOD']) === 'post';
 }
 function escape(string $value):string{
     return trim(htmlspecialchars($value, ENT_QUOTES, 'UTF-8'));
@@ -11,19 +11,18 @@ function isLoggedIn():bool{
 function filterURL(){
     if (strpos($_SERVER['REQUEST_URI'],"/",-1) ||
         strpos($_SERVER['REQUEST_URI'],"?",+1) ||
-        !filter_var(trim(htmlspecialchars(addslashes($_SERVER['REQUEST_URI'])),"/"),FILTER_SANITIZE_URL) ||
-        !preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$_SERVER['REQUEST_URI']))
-        {
+        !filter_var(trim(htmlspecialchars(addslashes($_SERVER['REQUEST_URI'])),"/"),FILTER_SANITIZE_URL)){
         header('location: ' . SITE_URL . 'index.php');
+        exit();
     }
 }
 if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
 if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){
-       if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
-           return true;
-       };
+        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
+            return true;
+        };
     }
     return $base;
 }
@@ -58,25 +57,21 @@ function notificationErrorMessage(?string $message = null){
 }
 function convertToMoney(int $cent):string{
     $money = $cent / 100;
-    return number_format($money, 2, ",", " ");
+    return "$ " .number_format($money, 2, ",", " ");
 }
 function passwordValidate(string $password):bool{
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $number = preg_match('@[0-9]@', $password);
-    $specialChars = preg_match('@[^\w]@', $password);
-    if(!$uppercase || !$lowercase || !$number || !$specialChars){
-        return  false;
+    if(!preg_match('@[A-Z]+[a-z]+[0-9]+[^\w]@', $password)){
+        return false;
     }
     return $password;
 }
 function emailValidate(string $email):bool{
-     if((!preg_match("/^([a-z0-9\+_\-]+)
+    if((!preg_match("/^([a-z0-9\+_\-]+)
        (\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ||
         !filter_var($email, FILTER_VALIDATE_EMAIL)){
-         return false;
-     };
-     return $email;
+        return false;
+    };
+    return $email;
 }
 function checkQueryString(){
     $query_string = $_SERVER['QUERY_STRING'];
@@ -108,4 +103,18 @@ function FilterQueryString(){
             }
         }
     }
+}
+function logData(string $level, string $message,?array $data = null){
+    $today = date('Y-m-d');
+    $now = date('Y-m-d H:i:s');
+    $logFile = LOG_DIR.'/log-'.$today.'.log';
+
+    $logData = '['.$now.'-'.$level.'] '.$message."\n";
+
+    if ($data){
+        $dataString = print_r($data,true)."\n";
+        $logData .= $dataString;
+    }
+    $logData .= str_repeat('*',100)."\n";
+    file_put_contents($logFile, $logData,FILE_APPEND);
 }

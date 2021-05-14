@@ -1,17 +1,12 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/login.php';
+logData("INFO","Login PAGE",['user_id'=>$userId]);
 ?>
 <div class="container w-25 form-group mt-5 border rounded">
     <h3 class="text-left mt-3 mb-3">Sign-In</h3>
     <form action="<?= escape($_SERVER['PHP_SELF']);?>" method="POST">
-        <?php if ($hasErrors ?? ''):?>
-            <div class="alert alert-danger" role="alert">
-                <?php foreach ($errors as $errorMessage):?>
-                    <p><?= $errorMessage ;?></p>
-                <?php endforeach;?>
-            </div>
-        <?php endif;?>
+        <?php require_once __DIR__.'/errorMessages.php';?>
         <div class="form-group">
             <label for="username" class="form-label font-weight-bold">Name</label>
             <input type="text" name="username" value="<?= empty($username) ? '' : $username;?>" class="form-control">

@@ -322,7 +322,12 @@ footer .form-group{
 .view_image{
     width: 20rem;
 }
-
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
 
 
 

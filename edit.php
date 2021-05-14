@@ -5,13 +5,7 @@ if (isLoggedIn()):?>
     <div class="container form-group mt-5 border rounded" style="background-color: white">
        <h3 class="text-center" style="font-family: 'Lato';">You can edit your name and password</h3>
         <form method="POST" action="<?= escape($_SERVER['PHP_SELF']);?>" class="form-group">
-             <?php if ($hasErrors ?? []): ?>
-            <div class="alert alert-danger" role="alert">
-                <?php foreach ($errors as $errorMessage):?>
-                    <p><?= empty($errorMessage) ? : $errorMessage ;?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif;?>
+             <?php require_once __DIR__.'/errorMessages.php';?>
             <div class="form-group">
                 <label for="username" class="form-label">Name</label>
                 <input type="text" name="username" value="<?= empty($username) ? '' : $username ;?>" class="form-control font-weight-bold" placeholder="Enter Name">

@@ -10,7 +10,7 @@ function getCurrentUserId(){
     return $userId;
 }
 function getUserDataForUsername(string $username):array{
-    $sql = "SELECT id,password,username,user_id FROM user 
+    $sql = "SELECT id,password,username,user_id,userRights FROM user 
             WHERE username= :username";
     $statement = getDb()->prepare($sql);
     if (false === $statement){
@@ -95,33 +95,51 @@ function ifEmailExist(string $email):bool{
     $statment->execute([':Email' => $email]);
     return (bool)$statment->fetchColumn();
 }
+function getAccountTotal():int{
+    $sql = "SELECT COUNT(id) FROM user";
+    $statement = getDb()->query($sql);
+    if (false === $statement){
+        return 0;
+    }
+    return (int)$statement->fetchColumn();
+}
 function createAcocount(string $username, string $password, int $userId, string $email):bool{
     $password = password_hash($password, PASSWORD_BCRYPT);
-    $sql = "INSERT INTO user 
-            SET username= :Username, 
+    $group = 'USER';
+    if (getAccountTotal() === 0){
+        $group = 'ADMIN';
+    }
+    $sql = "INSERT INTO user SET 
+            username= :Username, 
             password= :Password,
             user_id= :UserId, 
-            email= :Email";
+            email= :Email,
+            userRights= :UserRights";
     $statement = getDb()->prepare($sql);
-    if (false === $statement){return false;}
+    if (false === $statement){
+        return false;
+    }
     $data = [
         ':Username'=>$username,
         ':Password' => $password,
         ':UserId' => $userId,
-        ':Email' => $email
+        ':Email' => $email,
+        ':UserRights'=>$group
     ];
     $statement->execute($data);
-    $rowCount = $statement->rowCount();
-    return $rowCount > 0;
+    $affectedRows = $statement->rowCount();
+    return $affectedRows > 0;
+}
+function isAdmin():bool{
+    return isset($_SESSION['userRights']) && $_SESSION['userRights'] == 'ADMIN';
 }
 function CreateToken(){
     return $_SESSION['token'] = base64_encode(md5(microtime()));
 }
 function isToken($token):bool{
-    if (isset($_SESSION['token']) && $token==$_SESSION['token']){
+    if (isset($_SESSION['token']) && $token == $_SESSION['token']){
         unset($_SESSION['token']);
         return true;
     }
     return false;
 }
-

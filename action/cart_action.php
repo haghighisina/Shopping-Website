@@ -26,6 +26,17 @@ if (isPost()){
         header('location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
+    if (isAdmin()) {
+        if (isset($_POST['delete'])) {
+            $product_id = (int)filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
+            $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
+            deleteProduct($product_id);
+            notificationMessage("product ". $product_name ." has deleted from product section");
+            header('location: ' . $_SERVER['PHP_SELF']);
+            exit();
+        }
+    }
 }
+
 
 
