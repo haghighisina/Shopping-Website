@@ -17,7 +17,10 @@ logData("INFO","Login PAGE",['user_id'=>$userId]);
         </div>
         <div class="g-recaptcha" data-sitekey="6LdsrtgZAAAAAJn9era88xaoM9DAJ8-1XPJvpfkC"></div>
         <script src="https://www.google.com/recaptcha/api.js"></script>
+<!--    prevent CSRF Attack -->
         <input type="hidden" name="token" value="<?= CreateToken() ;?>">
+<!--    prevent CSRF Attack -->
+
         <button type="submit" name="submit" class="mb-3 form-control btn btn-primary">Continue</button>
     </form>
 </div>

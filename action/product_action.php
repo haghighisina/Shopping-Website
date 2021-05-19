@@ -1,12 +1,12 @@
 <?php
-if (isset($_GET['delete']) && $_GET['delete'] == '1') {
+if (isset($_GET['delete']) && $_GET['delete'] == 'delete') {
     deleteProductInCartForUserId($userId,$_GET['id']);
     notificationMessage('product has deleted from cart');
     header('location: '.$_SERVER['PHP_SELF']);
     exit();
 }
 if (isset($_GET['action']) && $_GET['action'] == 'Clear_Cart') {
-    clearAllItemInCart();
+    clearAllItemInCart($userId);
     notificationMessage('cart items has cleared');
     header('location: '.$_SERVER['PHP_SELF']);
     exit();

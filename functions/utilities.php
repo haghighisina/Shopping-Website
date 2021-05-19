@@ -8,9 +8,9 @@ function escape(string $value):string{
 function isLoggedIn():bool{
     return isset($_COOKIE['userId']);
 }
+//filter url to prevent XSS Attck
 function filterURL(){
     if (strpos($_SERVER['REQUEST_URI'],"/",-1) ||
-        strpos($_SERVER['REQUEST_URI'],"?",+1) ||
         !filter_var(trim(htmlspecialchars(addslashes($_SERVER['REQUEST_URI'])),"/"),FILTER_SANITIZE_URL)){
         header('location: ' . SITE_URL . 'index.php');
         exit();
@@ -18,6 +18,7 @@ function filterURL(){
 }
 if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
 if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
+
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){
         if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
@@ -89,8 +90,9 @@ function checkLogAttack($Ip, $details){
     $data = [':IP'=>$Ip,':Description'=>$details];
     return $statement->execute($data);
 }
+//ceate a black list to Filter Qurey String
 function FilterQueryString(){
-    $list = array("script","<",">","'","OR","document","hack","cookie","alert","%3E","%3C","%27","../");
+    $list = array("script","<",">","'","OR","document","hack","cookie","alert","%3E","%3C","%27");
     $ip = htmlentities($_SERVER['REMOTE_ADDR']);
     if (isset($_GET)) {
         foreach ($_GET as $key => $value) {

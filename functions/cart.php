@@ -49,15 +49,16 @@ function countCartItemsInCart(?int $userId):array{
     if (false === $statement){return [];};
     $data = [':userId' => $userId];
     $statement->execute($data);
+    $products = [];
     while ($row = $statement->fetch()){
         $products[] = $row;
     }
-    return $products;
+    return (array)$products;
 }
-function clearAllItemInCart(){
-    $sql = "DELETE FROM cart";
+function clearAllItemInCart(int $userid){
+    $sql = "DELETE FROM cart WHERE user_id= :userId";
     $statement = getDb()->prepare($sql);
-    $statement->execute();
+    $statement->execute([':userId'=>$userid]);
 }
 function getCartAllItemsForUserId(?int $userId):array{
     if(null === $userId){

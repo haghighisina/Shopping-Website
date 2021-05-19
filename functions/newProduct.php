@@ -35,7 +35,7 @@ if (isAdmin()) {
                 $dataFile = $_FILES['image']['tmp_name'][0];
                 $filesize = filesize($dataFile);
                 if (!$dataFile || !$filesize){
-                    notificationMessage("The image is empty");
+                    notificationErrorMessage("The image is empty");
                     header("location: ".$_SERVER['PHP_SELF']);
                     exit();
                 }

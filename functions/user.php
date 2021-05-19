@@ -59,6 +59,7 @@ function changeUser(string $username, string $password, string $email, int $user
     $statement->execute($data);
     return $statement;
 }
+//change user id every time to prevent Session Hijacking
 function ChangeUserId($userID,$ID){
     $sql = "UPDATE user SET user_id= :UserID WHERE id= :ID";
     $statement = getDb()->prepare($sql);
@@ -133,9 +134,11 @@ function createAcocount(string $username, string $password, int $userId, string 
 function isAdmin():bool{
     return isset($_SESSION['userRights']) && $_SESSION['userRights'] == 'ADMIN';
 }
+//create token for hidden token value - CSRF Attack
 function CreateToken(){
     return $_SESSION['token'] = base64_encode(md5(microtime()));
 }
+//check if the token is equall to is token session - CSRF Attack
 function isToken($token):bool{
     if (isset($_SESSION['token']) && $token == $_SESSION['token']){
         unset($_SESSION['token']);

@@ -36,6 +36,7 @@ if (isServer("login.php")){
             if (false === $hasErrors) {
                 if (0 === count($errors)) {
                     $_SESSION['userRights'] = $userData['userRights'];
+                    //change user id every time to prevent Session Hijacking
                     session_regenerate_id(true);
                     $userID = getCurrentUserId();
                     ChangeUserId($userID,$userData['id']);

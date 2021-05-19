@@ -15,7 +15,7 @@ $allProducts = getCartAllItemsForUserId($userId);?>
             <h6 class="text-primary"><?= $product['created'];?></h6>
         </div>
         <div class="col-3">
-            <a href="shopping_cart.php?delete=1&id=<?= $product['product_id'];?>"
+            <a href="shopping_cart.php?delete=delete&id=<?= $product['product_id'];?>"
                class="product_id btn btn-danger btn-sm " onclick="return confirm('Are you sure') ">Delete</a>
         </div>
         <div class="col-2">

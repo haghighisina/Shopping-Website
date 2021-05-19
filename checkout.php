@@ -1,6 +1,11 @@
-<?php require_once __DIR__.'/includes.php';
-$cartItems = countCartItemsInCart($userId);
-?>
+<?php session_start();
+require_once __DIR__.'/includes.php';
+if (empty(countCartItemsInCart($userId))):
+    notificationErrorMessage('your cart is empty');
+    header('location: shopping_cart.php');
+    exit();
+    else:
+$cartItems = countCartItemsInCart($userId);?>
 <div class="container mt-5">
     <div class="container-fluid mt-5">
         <section class="row text-center">
@@ -28,3 +33,4 @@ $cartItems = countCartItemsInCart($userId);
         </section>
     </div>
 </div>
+<?php endif;?>
