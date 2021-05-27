@@ -17,7 +17,7 @@ function filterURL(){
     }
 }
 if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
-if (!defined("BASE_URL")) define("BASE_URL",SITE_URL);
+if(!defined("BASE_URL")) define("BASE_URL",SITE_URL);
 
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){

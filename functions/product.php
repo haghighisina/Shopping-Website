@@ -12,6 +12,19 @@ function getAllProduct():array{
     }
     return $products;
 }
+function getProductById($product_id):array{
+    $sql = "SELECT * FROM products WHERE id= :ID";
+    $result = getDb()->prepare($sql);
+    if (!$result){
+        return [];
+    }
+    $result->execute([':ID'=>$product_id]);
+    $products = [];
+    while($row = $result->fetch()){
+        $products[] = $row;
+    }
+    return $products;
+}
 function getSearchProduct(int $product_id):array{
     $sql = "SELECT * FROM products WHERE id= :product_id";
     $result = getDb()->prepare($sql);
@@ -42,6 +55,28 @@ function createProduct(string $product_title,string $description,int $price, str
     $staement->execute($data);
     $lastId = getDb()->lastInsertId();
     return $lastId > 0;
+}
+function editProduct(int $id, string $product_title,string $description,int $price, string $image):bool{
+    $sql = "UPDATE products SET
+            title= :ProductTitle,
+            description= :Description,
+            price= :Price,
+            pic= :Pic
+            WHERE id= :ID";
+    $statement = getDb()->prepare($sql);
+    if (false === $statement){
+        return false;
+    }
+    $data = [
+        ':ProductTitle' => $product_title,
+        ':Description' => $description,
+        ':Price' => $price,
+        ':Pic' =>$image,
+        ':ID' => $id,
+    ];
+    $statement->execute($data);
+    $rowCount = $statement->rowCount();
+    return $rowCount > 0;
 }
 function deleteProduct(int $productId):int{
     $sql ="DELETE FROM products 

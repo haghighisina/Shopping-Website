@@ -22,7 +22,7 @@ $products = getAllProduct();
         <div class="col-sm-4 col-md-3 mt-5">
             <div class="card mx-1">
                 <div class="card-title text-center"><?= $product['title']; ?></div>
-                <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg"; ?>" alt="Card image cap">
+                <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
                 <div class="card-body">
                     <?= $product['description']; ?><hr> <?= convertToMoney($product['price']); ?>
                 </div>
@@ -44,15 +44,17 @@ $products = getAllProduct();
                         <button type="submit" name="submit" class="btn btn-outline-success mx-3 btn-sm">Submit</button>
                         <?php endif;?>
                         <?php if (isAdmin()):;?>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Action
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button type="submit" name="delete" class="btn btn-outline-danger mx-3 btn-sm">Delete</button>
-                                <button type="submit" name="edit" class="btn btn-outline-primary mx-3 btn-sm">Edit</button>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Action
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <button type="submit" name="delete" class="btn btn-outline-danger mx-3 btn-sm">Delete</button>
+                                    <a href="<?php printf("%s?product_id=%s",
+                                    'edit_product.php',$product['id']);?>"
+                                    class="btn btn-outline-primary mx-3 btn-sm">Edit</a>
+                                </div>
                             </div>
-                        </div>
                         <?php endif;?>
                     </form>
                 </div>

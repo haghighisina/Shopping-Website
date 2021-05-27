@@ -1,6 +1,6 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
-require_once __DIR__.'/functions/newProduct.php';
+require_once __DIR__.'/action/cart_action.php';
 if (isAdmin()):;?>
 <div class="container mt-5">
     <form action="<?= escape($_SERVER['PHP_SELF']);?>" method="POST" enctype="multipart/form-data">
@@ -29,7 +29,7 @@ if (isAdmin()):;?>
             </div>
             <div class="card-footer">
                 <a href="index.php" class="btn btn-danger">Cancel</a>
-                <button class="btn btn-success" type="submit" name="submit">Save</button>
+                <button class="btn btn-success" type="submit" name="new_submit">Save</button>
             </div>
         </div>
     </form>
