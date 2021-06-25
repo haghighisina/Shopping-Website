@@ -74,21 +74,25 @@ if (isPost()) {
             if ($filesize === 0) {
                 $errors[] = "The data is empty";
             }
-            $allowedfiles = [
-                'image/png' => 'png',
-                'image/jpg' => 'jpg',
-                'image/jpeg' => 'jpeg'
-            ];
-            if (!in_array($type, array_keys($allowedfiles))) {
-                $errors[] = "This data is not allowed";
-            }
-            $extension = $allowedfiles[$type];
+            if ($filesize !== 0) {
+                $allowedfiles = [
+                    'image/png' => 'png',
+                    'image/jpg' => 'jpg',
+                    'image/jpeg' => 'jpeg'
+                ];
+                if (!in_array($type, array_keys($allowedfiles))) {
+                    notificationErrorMessage("This data ".$type." type is not allowed");
+                    header("location: " . $_SERVER['PHP_SELF']);
+                    exit();
+                }
 
-            $path = __DIR__ . '/../asset/image/' . time() . '.' . $extension;
-            if (!copy($dataFile, $path)) {
-                $errors[] = "could " . $dataFile . " not copy into" . $path;
+                $extension = $allowedfiles[$type];
+                $path = __DIR__ . '/../asset/image/' . time() . '.' . $extension;
+                if (!copy($dataFile, $path)) {
+                    $errors[] = "could " . $dataFile . " not copy into" . $path;
+                }
+                unlink($dataFile);
             }
-            unlink($dataFile);
 
             $hasErrors = count($errors) > 0;
             if (false === $hasErrors) {
@@ -130,31 +134,35 @@ if (isPost()) {
             $filesize = filesize($dataFile);
             if (!$dataFile || !$filesize) {
                 notificationErrorMessage("The image is empty");
-                header("location: " . $_SERVER['PHP_SELF']);
+                header("location: " . SITE_URL."edit_product.php");
                 exit();
             }
 
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $type = finfo_file($finfo, $dataFile);
-
+            var_dump($type);
             if ($filesize === 0) {
                 $errors[] = "The data is empty";
             }
-            $allowedfiles = [
-                'image/png' => 'png',
-                'image/jpg' => 'jpg',
-                'image/jpeg' => 'jpeg'
-            ];
-            if (!in_array($type, array_keys($allowedfiles))) {
-                $errors[] = "This data is not allowed";
-            }
-            $extension = $allowedfiles[$type];
+            if ($filesize !== 0) {
+                $allowedfiles = [
+                    'image/png' => 'png',
+                    'image/jpg' => 'jpg',
+                    'image/jpeg' => 'jpeg'
+                ];
+                if (!in_array($type, array_keys($allowedfiles))) {
+                    notificationErrorMessage("This data ".$type." type is not allowed");
+                    header("location: ".SITE_URL."cardItems.php");
+                    exit();
+                }
 
-            $path = __DIR__ . '/../asset/image/' . time() . '.' . $extension;
-            if (!copy($dataFile, $path)) {
-                $errors[] = "could " . $dataFile . " not copy into" . $path;
+                $extension = $allowedfiles[$type];
+                $path = __DIR__ . '/../asset/image/' . time() . '.' . $extension;
+                if (!copy($dataFile, $path)) {
+                    $errors[] = "could " . $dataFile . " not copy into" . $path;
+                }
+                unlink($dataFile);
             }
-            unlink($dataFile);
 
             $hasErrors = count($errors) > 0;
             if (false === $hasErrors) {
