@@ -12,7 +12,7 @@ function getCurrentUserId(){
 function getUserDataForUsername(string $username):array{
     $sql = "SELECT id,password,username,user_id,userRights FROM user 
             WHERE username= :username";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
         return [];
     }
@@ -25,11 +25,27 @@ function getUserDataForUsername(string $username):array{
     }
     return $row;
 }
+function getUserDataFormCookie($userid):array{
+    $sql = "SELECT id,password,email,username,user_id,userRights FROM user 
+            WHERE user_id= :userID";
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    if (false === $statement){
+        return [];
+    }
+    $data = [':userID'=>$userid];
+    $statement->execute($data);
+    if (0 === $statement->rowCount()){
+        return [];
+    }elseif($statement->rowCount()==1){
+        $row = $statement->fetch();
+    }
+    return $row;
+}
 function getUserData(?string $username, ?string $password):array{
     $password = password_hash($password, PASSWORD_BCRYPT);
     $sql = "SELECT id,username,password FROM user 
             WHERE username= :username AND password= :password";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
         return [];
     }
@@ -49,7 +65,7 @@ function changeUser(string $username, string $password, string $email, int $user
     $password = password_hash($password, PASSWORD_BCRYPT);
     $sql = "UPDATE user SET username= :Username, password= :Password, email= :Email 
             WHERE user_id= :UserId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':Username' => $username,
         ':Password' => $password,
@@ -62,7 +78,7 @@ function changeUser(string $username, string $password, string $email, int $user
 //change user id every time to prevent Session Hijacking
 function ChangeUserId($userID,$ID){
     $sql = "UPDATE user SET user_id= :UserID WHERE id= :ID";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':UserID'=>$userID,
         ':ID'=>$ID
@@ -71,7 +87,7 @@ function ChangeUserId($userID,$ID){
 }
 function ChangeUserIdForCart($userID,$ID){
     $sql = "UPDATE cart SET user_id= :UserID WHERE user_id= :ID";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':UserID'=>$userID,
         ':ID'=>$ID
@@ -80,7 +96,7 @@ function ChangeUserIdForCart($userID,$ID){
 }
 function ifUserNameExist(string $username):bool{
     $sql = "SELECT 1 FROM user WHERE username= :Username";
-    $statment = getDb()->prepare($sql);
+    $statment = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statment){
         return false;
     }
@@ -89,7 +105,7 @@ function ifUserNameExist(string $username):bool{
 }
 function ifEmailExist(string $email):bool{
     $sql = "SELECT 1 FROM user WHERE email= :Email";
-    $statment = getDb()->prepare($sql);
+    $statment = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statment){
         return false;
     }
@@ -116,7 +132,7 @@ function createAcocount(string $username, string $password, int $userId, string 
             user_id= :UserId, 
             email= :Email,
             userRights= :UserRights";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
         return false;
     }

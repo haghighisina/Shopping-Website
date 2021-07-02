@@ -32,6 +32,9 @@ if (isServer("edit.php")) {
                 if (mb_strlen($password) < 6) {
                     $errors[] = "Password is too short";
                 }
+                if (false === (bool)passwordValidate($password)) {
+                    $errors[] = 'Password should include at least one upper case letter, one number, and one special character.';
+                }
             }
             if (true === (bool)$email) {
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

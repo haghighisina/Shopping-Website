@@ -9,7 +9,7 @@ function addToCart(int $userId,string $product_name,int $product_id,int $product
             ON DUPLICATE KEY
             UPDATE quantity= quantity + :quantity, 
             product_price= product_price + :ProductPrice";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':userId' => $userId,
         ':ProductName' =>$product_name,
@@ -25,7 +25,7 @@ function countProductsInCart(?int $userId):int{
     }
     $sql = "SELECT COUNT(id) FROM cart 
             WHERE user_id= :userId";
-    $cartResult = getDb()->prepare($sql);
+    $cartResult = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $cartResult){
         return 0;
     }
@@ -35,7 +35,7 @@ function countProductsInCart(?int $userId):int{
 }
 function ifProductExistInCart(int $userId, int $product_id){
     $sql = "SELECT product_id FROM cart WHERE user_id= :UserID AND product_id= :ProductId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){return [];};
     $data = [':UserID'=>$userId,':ProductId' => $product_id];
     $statement->execute($data);
@@ -45,7 +45,7 @@ function countCartItemsInCart(?int $userId):array{
     $sql = "SELECT product_name, product_price,product_id, quantity, price FROM cart
             JOIN products ON(cart.product_id = products.id)
             WHERE user_id= :userId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){return [];};
     $data = [':userId' => $userId];
     $statement->execute($data);
@@ -57,7 +57,7 @@ function countCartItemsInCart(?int $userId):array{
 }
 function clearAllItemInCart(int $userid){
     $sql = "DELETE FROM cart WHERE user_id= :userId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $statement->execute([':userId'=>$userid]);
 }
 function getCartAllItemsForUserId(?int $userId):array{
@@ -68,7 +68,7 @@ function getCartAllItemsForUserId(?int $userId):array{
             FROM cart 
             JOIN products ON(cart.product_id = products.id)
             WHERE user_id = :userId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){return [];}
     $data = [':userId' => $userId];
     $statement->execute($data);
@@ -82,7 +82,7 @@ function getCartSum(?int $userId):int{
     $sql = "SELECT SUM(price * quantity) FROM cart 
             JOIN products ON(cart.product_id = products.id) 
             WHERE user_id = :userId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){return 0;}
     $data = [':userId'=>$userId];
     $statement->execute($data);
@@ -92,7 +92,7 @@ function deleteProductInCartForUserId(int $userId, int $productId):int{
     $sql ="DELETE FROM cart 
            WHERE user_id= :userId 
            AND product_id= :productId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if ($statement === false){return 0;}
     $data = [
         ':userId'=>$userId,
@@ -104,7 +104,7 @@ function updateCartItemsQuantity(int $quantity, int $product_price, int $product
     $sql = "UPDATE cart 
             SET quantity= :Quantity, product_price= :Product_price 
             WHERE product_id= :ID";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':Quantity'=>$quantity,
         ':Product_price'=>$product_price,
@@ -115,7 +115,7 @@ function updateCartItemsQuantity(int $quantity, int $product_price, int $product
 function search(string $search):array{
     $search = "%$search%";
     $sql  = "SELECT * FROM products WHERE title LIKE ?";
-    $stmt = getDb()->prepare($sql);
+    $stmt = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $stmt){
         return [];
     }

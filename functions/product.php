@@ -1,7 +1,7 @@
 <?php /** @noinspection ALL */
 function getAllProduct():array{
     $sql = "SELECT * FROM products";
-    $result = getDb()->prepare($sql);
+    $result = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (!$result){
         return [];
     }
@@ -14,7 +14,7 @@ function getAllProduct():array{
 }
 function getProductById($product_id):array{
     $sql = "SELECT * FROM products WHERE id= :ID";
-    $result = getDb()->prepare($sql);
+    $result = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (!$result){
         return [];
     }
@@ -27,7 +27,7 @@ function getProductById($product_id):array{
 }
 function getSearchProduct(int $product_id):array{
     $sql = "SELECT * FROM products WHERE id= :product_id";
-    $result = getDb()->prepare($sql);
+    $result = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (!$result){return [];}
     $result->execute([':product_id' => $product_id]);
     $products = [];
@@ -42,7 +42,7 @@ function createProduct(string $product_title,string $description,int $price, str
             description= :Description,
             price= :Price,
             pic= :Pic";
-    $staement = getDb()->prepare($sql);
+    $staement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $staement){
         return false;
     }
@@ -63,7 +63,7 @@ function editProduct(int $id, string $product_title,string $description,int $pri
             price= :Price,
             pic= :Pic
             WHERE id= :ID";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
         return false;
     }
@@ -81,7 +81,7 @@ function editProduct(int $id, string $product_title,string $description,int $pri
 function deleteProduct(int $productId):int{
     $sql ="DELETE FROM products 
            WHERE id= :productId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if ($statement === false){return 0;}
     $data = [
         ':productId'=>$productId

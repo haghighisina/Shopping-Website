@@ -3,7 +3,7 @@ function changeUser(string $username, string $password, string $email, int $user
     $password = password_hash($password, PASSWORD_DEFAULT);
     $sql = "UPDATE user SET username= :Username, password= :Password, email= :Email 
             WHERE user_id= :UserId";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':Username' => $username,
         ':Password' => $password,
@@ -17,7 +17,7 @@ function getUserData(?string $username, ?string $password):array{
     $password = password_hash($password, PASSWORD_DEFAULT);
     $sql = "SELECT id,username,password FROM user 
             WHERE username= :username AND password= :password";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
         return [];
     }

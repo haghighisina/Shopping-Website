@@ -85,7 +85,7 @@ function checkQueryString(){
 }
 function checkLogAttack($Ip, $details){
     $sql = "INSERT INTO log SET ip= :IP, description= :Description";
-    $statement = getDb()->prepare($sql);
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $details = addslashes(htmlentities($details));
     $data = [':IP'=>$Ip,':Description'=>$details];
     return $statement->execute($data);

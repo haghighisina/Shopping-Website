@@ -33,6 +33,7 @@ if (isAdmin()):;?>
                             <div class="form-group">
                                 <label for="image">Product Image</label>
                                 <input type="file" name="image[]" class="form-control">
+								<image src="<?= $product['pic'];?>" style="width:100px">
                             </div>
                         </div>
                         <div class="card-footer">
