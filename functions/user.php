@@ -62,7 +62,7 @@ function getUserData(?string $username, ?string $password):array{
     return $row;
 }
 function changeUser(string $username, string $password, string $email, int $userId){
-    $password = password_hash($password, PASSWORD_BCRYPT);
+    $password = password_hash($password, PASSWORD_BCRYPT );
     $sql = "UPDATE user SET username= :Username, password= :Password, email= :Email 
             WHERE user_id= :UserId";
     $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);

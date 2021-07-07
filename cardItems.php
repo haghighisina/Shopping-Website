@@ -2,7 +2,6 @@
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
 require_once __DIR__.'/action/cart_action.php';
-logData("INFO","Product PAGE",['user_id'=>$userId]);
 $products = getAllProduct();
 ?>
 <div class="container container-fluid mb-5">
@@ -49,7 +48,7 @@ $products = getAllProduct();
                                     Action
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <button type="submit" name="delete" class="btn btn-outline-danger mx-3 btn-sm">Delete</button>
+                                    <button type="submit" name="delete" class="btn btn-outline-danger mx-3 btn-sm" onclick="return confirm('Are you sure')">Delete</button>
                                     <a href="<?php printf("%s?product_id=%s",
                                     'edit_product.php',$product['id']);?>"
                                     class="btn btn-outline-primary mx-3 btn-sm">Edit</a>

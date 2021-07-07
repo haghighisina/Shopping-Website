@@ -71,7 +71,7 @@ if (isServer("register.php")) {
                 if ($createAccount) {
                     notificationMessage('Your registration has successfully done');
 					$_SESSION['logged_in'] = (int)$userData['user_id'];
-                    setcookie('userId', $_SESSION['logged_in'], strtotime('+30 days'), '/');
+                    setcookie('userId', $_SESSION['logged_in'], 0, '/');
                     header("location: index.php");
                     exit();
                 }

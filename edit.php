@@ -1,10 +1,7 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__ . '/functions/edit.php';
-if (isLoggedIn()):
-    $data = getUserDataFormCookie($_COOKIE['userId']);
-
-?>
+if (isLoggedIn()): $data = getUserDataFormCookie($_COOKIE['userId']);?>
     <div class="container form-group mt-5 border rounded" style="background-color: white">
        <h3 class="text-center" style="font-family: 'Lato';">You can edit your name and password</h3>
         <form method="POST" action="<?= escape($_SERVER['PHP_SELF']);?>" class="form-group">

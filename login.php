@@ -1,7 +1,6 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/login.php';
-logData("INFO","Login PAGE",['user_id'=>$userId]);
 ?>
 <div class="container w-25 form-group mt-5 border rounded">
     <h3 class="text-left mt-3 mb-3">Sign-In</h3>

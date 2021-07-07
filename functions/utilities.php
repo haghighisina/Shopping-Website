@@ -21,11 +21,20 @@ if(!defined("BASE_URL")) define("BASE_URL",SITE_URL);
 
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){
-        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/$base"){
+        if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/".$base){
             return true;
         };
     }
     return $base;
+}
+function getIPAddress():bool{
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    return $ip = $_SERVER['REMOTE_ADDR'];
 }
 function getRandomHash(int $length):string{
     $randomInt = random_int(0, time());

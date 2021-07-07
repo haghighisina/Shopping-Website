@@ -1,8 +1,6 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
-require_once __DIR__.'/functions/register.php';
-logData("INFO","Register PAGE",['user_id'=>$userId]);
-?>
+require_once __DIR__.'/functions/register.php';?>
 <style>
     input:invalid {border-color: #ee1414;}
 </style>
@@ -24,7 +22,7 @@ logData("INFO","Register PAGE",['user_id'=>$userId]);
         </div>
         <div class="form-group">
             <label for="email" class="form-label font-weight-bold">Email</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" value="<?= empty($email) ? '' : $email;?>" required>
         </div>
         <div class="g-recaptcha" data-sitekey="6LdsrtgZAAAAAJn9era88xaoM9DAJ8-1XPJvpfkC"></div>
         <script src="https://www.google.com/recaptcha/api.js"></script>

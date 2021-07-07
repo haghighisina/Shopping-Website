@@ -1,6 +1,6 @@
 <?php /** @noinspection ALL */
 function changeUser(string $username, string $password, string $email, int $userId){
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_BCRYPT);
     $sql = "UPDATE user SET username= :Username, password= :Password, email= :Email 
             WHERE user_id= :UserId";
     $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
@@ -14,7 +14,7 @@ function changeUser(string $username, string $password, string $email, int $user
     return $statement;
 }
 function getUserData(?string $username, ?string $password):array{
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_BCRYPT);
     $sql = "SELECT id,username,password FROM user 
             WHERE username= :username AND password= :password";
     $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
