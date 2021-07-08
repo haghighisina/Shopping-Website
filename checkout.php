@@ -1,5 +1,7 @@
-<?php session_start();
+<?php
 require_once __DIR__.'/includes.php';
+redirectIfNotLogged($_SERVER['PHP_SELF']);
+session_start();
 if (empty(countCartItemsInCart($userId))):
     notificationErrorMessage('your cart is empty');
     header('location: shopping_cart.php');

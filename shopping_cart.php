@@ -1,11 +1,15 @@
-<?php session_start();
+<?php
 require_once __DIR__.'/includes.php';
+redirectIfNotLogged($_SERVER['PHP_SELF']);
+session_start();
 require_once __DIR__.'/action/product_action.php';
-$allProducts = getCartAllItemsForUserId($userId);?>
+$allProducts = getCartAllItemsForUserId($userId);
+$an = json_encode($allProducts);
+setcookie('allProductsInCartForUser',$an,strtotime('+30 days'),"/");?>
 <?php if (isLoggedIn()):;?>
 <div class="flex-row d-flex justify-content-center mt-3 mb-3"><h2 style="font-family: 'Pacifico';color: forestgreen">Cart</h2></div>
 <section class="container" id="cartItems">
-<?php foreach ($allProducts as $product):?>
+<?php foreach ($allProducts as $product):;?>
     <div class="row cartItem border-bottom pt-3 pb-3">
         <div class="col-3 zoom">
             <img class="card-img-top" src="<?= $product['pic']; ?>" alt="Card image cap">

@@ -1,5 +1,7 @@
-<?php session_start();
+<?php
 require_once __DIR__.'/includes.php';
+redirectIfNotLogged($_SERVER['PHP_SELF']);
+session_start();
 require_once __DIR__ . '/functions/edit.php';
 if (isLoggedIn()): $data = getUserDataFormCookie($_COOKIE['userId']);?>
     <div class="container form-group mt-5 border rounded" style="background-color: white">

@@ -120,12 +120,18 @@ function logData(string $level, string $message,?array $data = null){
     $now = date('Y-m-d H:i:s');
     $logFile = LOG_DIR.'/log-'.$today.'.log';
 
-    $logData = '['.$now.'-'.$level.'] '.$message."\n";
+    $logData = '['.$now.' - '.$level.'] '.$message."\r\n";
 
     if ($data){
-        $dataString = print_r($data,true)."\n";
+        $dataString = print_r($data,true)."\r\n";
         $logData .= $dataString;
     }
-    $logData .= str_repeat('*',100)."\n";
+    $logData .= str_repeat('*',100)."\r\n";
     file_put_contents($logFile, $logData,FILE_APPEND);
+}
+function redirectIfNotLogged(string $sourceTarget){
+    if (isLoggedIn()){return;}
+    logData('Error_RidirectPage',$_SERVER['PHP_SELF'],['user_id'=>$_SESSION['userId']?$_SESSION['userId']:$_COOKIE['userId'],'user_ip' => getIPAddress()]);
+    header("Location: " . BASE_URL . "login.php");
+    exit();
 }
