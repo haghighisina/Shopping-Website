@@ -10,7 +10,7 @@ function getCurrentUserId(){
     return $userId;
 }
 function getUserDataForUsername(string $username):array{
-    $sql = "SELECT id,password,username,user_id,userRights FROM user 
+    $sql = "SELECT * FROM user 
             WHERE username= :username";
     $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     if (false === $statement){
@@ -76,11 +76,12 @@ function changeUser(string $username, string $password, string $email, int $user
     return $statement;
 }
 //change user id every time to prevent Session Hijacking
-function ChangeUserId($userID,$ID){
-    $sql = "UPDATE user SET user_id= :UserID WHERE id= :ID";
+function ChangeUserId($userID, $token,$ID){
+    $sql = "UPDATE user SET user_id= :UserID,token= :token WHERE id= :ID";
     $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
     $data = [
         ':UserID'=>$userID,
+        ':token'=>$token,
         ':ID'=>$ID
     ];
     return $statement->execute($data);

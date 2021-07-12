@@ -1,12 +1,10 @@
-<?php
+<?php session_start();
 require_once __DIR__.'/includes.php';
 redirectIfNotLogged($_SERVER['PHP_SELF']);
-session_start();
 require_once __DIR__.'/action/product_action.php';
 $allProducts = getCartAllItemsForUserId($userId);
-$an = json_encode($allProducts);
-setcookie('allProductsInCartForUser',$an,strtotime('+30 days'),"/");?>
-<?php if (isLoggedIn()):;?>
+setcookie('allProductsInCartForUser', json_encode($allProducts), strtotime('+30 days'), "/");
+if (isLoggedIn()):;?>
 <div class="flex-row d-flex justify-content-center mt-3 mb-3"><h2 style="font-family: 'Pacifico';color: forestgreen">Cart</h2></div>
 <section class="container" id="cartItems">
 <?php foreach ($allProducts as $product):;?>

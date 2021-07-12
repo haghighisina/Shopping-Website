@@ -4,7 +4,8 @@ require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
 require_once __DIR__.'/action/cart_action.php';
 $products = getAllProduct();
-?>
+if (isLoggedIn()) {
+    setcookie('allProductsInCartForUser', json_encode($products), strtotime('+30 days'), "/");}?>
 <div class="container container-fluid mb-5">
 <div class="card-group">
     <?php if (isAdmin()):;?>

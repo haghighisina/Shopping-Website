@@ -11,7 +11,7 @@ if (isPost()) {
                 exit();
             } else {
                 addToCart($userId, $product_name, $product_id, $product_price);
-                notificationMessage('product has added in cart');
+                notificationMessage("product ".$product_name." has added in cart");
                 header('location: ' . $_SERVER['PHP_SELF']);
                 exit();
             }

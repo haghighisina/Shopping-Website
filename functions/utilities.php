@@ -6,7 +6,7 @@ function escape(string $value):string{
     return trim(htmlspecialchars($value, ENT_QUOTES, 'UTF-8'));
 }
 function isLoggedIn():bool{
-    return isset($_COOKIE['userId']);
+  return isset($_COOKIE['token']);
 }
 //filter url to prevent XSS Attck
 function filterURL(){
@@ -135,3 +135,8 @@ function redirectIfNotLogged(string $sourceTarget){
     header("Location: " . BASE_URL . "login.php");
     exit();
 }
+
+
+
+
+
