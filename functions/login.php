@@ -1,6 +1,7 @@
 <?php
 if (isServer("login.php")){
     if (isPost()) {
+        $captcha = "";
         if (isset($_POST['submit'])) {
             $errors = [];
             $hasErrors = false;
@@ -27,7 +28,7 @@ if (isServer("login.php")){
                 $errors[] = "Check the captcha please";
             }
             $secretKey = getRandomHash(30);
-            $responseKey = $_POST['g-recaptcha-response'];
+            $responseKey = isset($_POST['g-recaptcha-response'])?$_POST['g-recaptcha-response']:'';
             $userIP = $_SERVER['REMOTE_ADDR'];
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
             if (!isToken($_POST['token'])) {
@@ -39,7 +40,7 @@ if (isServer("login.php")){
                     $_SESSION['userRights'] = $userData['userRights'];
                     $userInfo = getUserDataForUsername($username);
                     if (isset($_COOKIE['token']) && $_COOKIE['token'] === $userInfo['token']) {
-                        setcookie('token', $_COOKIE['token'], strtotime("+30 days"), '/');
+                        setcookie('token', $_COOKIE['token'], 0, '/');
                         header("location: ".$_SERVER['PHP_SELF']);
                         exit();
                     }
@@ -48,6 +49,8 @@ if (isServer("login.php")){
                     ChangeUserId(getCurrentUserId(), getRandomHash(30),$userData['id']);
                     ChangeUserIdForCart(getCurrentUserId(), $userData['user_id']);
                     $userdatas = getUserDataForUsername($username);
+					//save user_agent
+					$_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
                     setcookie('userId',$userdatas['user_id'], 0, '/');
                     setcookie('token', $userdatas['token'], 0, '/');
                     notificationMessage('Welcome back ' . $userData['username']);

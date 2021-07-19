@@ -20,7 +20,7 @@ if (isLoggedIn()) {
     </div>
     <?php endif;?>
     <?php foreach ($products as $product):;?>
-        <div class="col-sm-4 col-md-3 mt-5">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-5 cartP">
             <div class="card mx-1">
                 <div class="card-title text-center"><?= $product['title']; ?></div>
                 <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
@@ -30,9 +30,9 @@ if (isLoggedIn()) {
                 <div class="card-footer">
                     <form action="<?= escape('description.php') ;?>" method="POST" class="form-inline">
                         <input type="hidden" name="product_id" value="<?=$product['id']?? 1;?>">
-                        <button type="submit" name="submit" class="btn btn-outline-primary mx-3 btn-sm">Description</button>
+                        <button type="submit" name="submit" class="btn btn-outline-primary mx-3 btn-sm descriptionbtn">Description</button>
                     </form>
-                    <form method="POST" action="<?= escape($_SERVER['PHP_SELF']);?>">
+                    <form method="POST" action="<?= escape($_SERVER['PHP_SELF']);?>" class="todo">
 <!--                    <a href="--><?php //printf("%s?id=%s&name=%s&product_price=%s",
 //                    'cardItems.php',$product['id'], $product['title'], $product['price']);?><!--"-->
 <!--                    class="btn btn-success btn-sm ml-2 px-4">Cart</a>-->
@@ -42,7 +42,7 @@ if (isLoggedIn()) {
                         <?php if (ifProductExistInCart($userId, $product['id'])):;?>
                         <button type="submit" name="in_cart" class="btn btn-outline-danger disabled mx-3 btn-sm">In cart</button>
                         <?php else:;?>
-                        <button type="submit" name="submit" class="btn btn-outline-success mx-3 btn-sm">Submit</button>
+                        <button type="submit" name="submit" class="btn btn-outline-success mx-3 btn-sm submitbtn">Submit</button>
                         <?php endif;?>
                         <?php if (isAdmin()):;?>
                             <div class="dropdown">

@@ -38,7 +38,7 @@ if (isAdmin()):;?>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="index.php" class="btn btn-danger">Cancel</a>
+                            <a href="cardItems.php" class="btn btn-danger">Cancel</a>
                             <input type="hidden" name="product_id" value="<?= $product['id']?? 1;?>">
                             <button class="btn btn-success" type="submit" name="edit_submit">Save</button>
                         </div>

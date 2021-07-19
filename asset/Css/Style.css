@@ -303,6 +303,85 @@ footer .form-group{
         width: 100%;
     }
 }
+@media screen and (max-width: 1396px){
+    .form-inline .descriptionbtn{
+        position: relative;
+        left: 20px;
+    }
+}
+@media screen and (max-width: 1199px){
+    .form-inline .descriptionbtn{
+        font-size: 11px;
+        position: relative;
+        left: 30px;
+    }
+    .todo .submitbtn{
+        font-size: 11px;
+        position: relative;
+        right: 4px;
+    }
+    .todo .dropdown{
+        font-size: 11px;
+        position: relative;
+        right: 20px;
+    }
+}
+@media screen and (max-width: 985px){
+    .form-inline .descriptionbtn{
+        /*font-size: 11px;*/
+        position: relative;
+        top: 9.5px;
+        left: 48px;
+    }
+    .todo .submitbtn{
+        /*font-size: 11px;*/
+        position: relative;
+        right: 4px;
+        top: 2px;
+    }
+    .form-inline .search-bar{
+        width: 100%;
+    }
+    .navbar-item .nav-link{
+        padding: 7px;
+    }
+    .todo .dropdown .dropdown-toggle{
+        font-size: 10px;
+        position: relative;
+        left: 28px;
+    }
+}
+@media screen and (max-width: 766px){
+    .form-inline .descriptionbtn{
+        /*font-size: 11px;*/
+        position: relative;
+        top: 9.5px;
+        left: 35px;
+    }
+    .todo .submitbtn{
+        /*font-size: 11px;*/
+        position: relative;
+        right: 3px;
+        top: 2px;
+    }
+}
+@media screen and (max-width: 570px){
+    .form-inline .descriptionbtn{
+        font-size: 18px;
+        position: relative;
+    }
+    .todo .submitbtn{
+        font-size: 18px;
+        position: relative;
+        left: 80px;
+    }
+    .todo .dropdown .dropdown-toggle{
+        font-size: 18px;
+        position: absolute;
+        left: 105px;
+    }
+
+}
 .card-footer .btn{
     padding: 5px 30px;
     margin: 2px;
@@ -328,11 +407,3 @@ footer .form-group{
 .dropdown>.dropdown-toggle:active {
     pointer-events: none;
 }
-
-
-
-
-
-
-
-

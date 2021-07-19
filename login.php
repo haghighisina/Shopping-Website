@@ -14,14 +14,14 @@ require_once __DIR__.'/functions/login.php'; ?>
             <input type="password" name="password" class="form-control">
         </div>
         <div class="g-recaptcha" data-sitekey="6LdsrtgZAAAAAJn9era88xaoM9DAJ8-1XPJvpfkC"></div>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script class="g-recaptcha" src="https://www.google.com/recaptcha/api.js"></script>
 <!--    prevent CSRF Attack -->
         <input type="hidden" name="token" value="<?= CreateToken() ;?>">
 <!--    prevent CSRF Attack -->
-
         <button type="submit" name="submit" class="mb-3 form-control btn btn-primary">Continue</button>
     </form>
 </div>
 <div class="container w-25 form-group mt-2">
    <hr><a href="register.php" type="submit" name="submit" style="background-color: lightgray;" class="mb-2 border border-dark form-control btn">Create your account</a>
 </div>
+<?php require_once __DIR__.'/template/footer.php';?>

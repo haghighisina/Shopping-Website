@@ -1,5 +1,7 @@
 <?php session_start();
 require_once __DIR__.'/includes.php';
+//check if the user-agent used at login time
+if(false === (bool)ifUserAgentMatche()){header("location: login.php");exit();}
 redirectIfNotLogged($_SERVER['PHP_SELF']);
 require_once __DIR__ . '/functions/edit.php';
 if (isLoggedIn()): $data = getUserDataFormCookie($_COOKIE['userId']);?>

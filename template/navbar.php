@@ -23,7 +23,7 @@
                 <?php endif;?>
                 <?php if(!isLoggedIn()):?>
                 <li class="navbar-item">
-                    <a class="nav-link menu-right-btn" href="login.php">Sign In</a>
+                    <a class="nav-link menu-right-btn signIn" href="login.php">Sign In</a>
                 </li>
                 <?php else:?>
                 <li class="navbar-item">
@@ -33,7 +33,7 @@
             </ul>
             <form  method="POST" action="search.php" class="form-inline d-flex my-2 my-lg-0">
                 <input class="form-control search-bar" name="search" type="search" placeholder="Search">
-                <button class="btn btn-search mr-2 pr-5" name="submitSearch" type="submit">Search</button>
+                <button class="btn btn-search mr-2 pr-5 submitSearch" name="submitSearch" type="submit">Search</button>
             </form>
         </div>
     </nav>

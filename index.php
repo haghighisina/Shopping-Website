@@ -14,4 +14,3 @@ logData("INFO", $_SERVER['HTTP_REFERER']??'',[
 require_once __DIR__.'/template/main.php';
 require_once __DIR__.'/template/footer.php';
 ?>
-

@@ -31,8 +31,3 @@ if (isset($_POST['submit'])){
     header('location: '.$_SERVER['PHP_SELF']);
     exit();
 }
-if (isset($_POST['itemQuantity'])){
-    notificationMessage('The quantity OK');
-    header('location: '.$_SERVER['PHP_SELF']);
-    exit();
-}
