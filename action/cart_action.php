@@ -27,6 +27,7 @@ if (isPost()) {
         exit();
     }
     if (isAdmin()) {
+        //Delete Product
         if (isset($_POST['delete'])) {
             $product_id = (int)filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
             $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -35,6 +36,7 @@ if (isPost()) {
             header('location: ' . $_SERVER['PHP_SELF']);
             exit();
         }
+        //New Product
         $product_title = "";
         $description = "";
         $price = 0;
@@ -109,7 +111,7 @@ if (isPost()) {
             }
 
         }
-
+        //Edit product
         if (isset($_POST['edit_submit'])) {
             $product_ID = (int)filter_input(INPUT_POST, 'product_id', FILTER_SANITIZE_NUMBER_INT);
             $product_title = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -178,7 +180,41 @@ if (isPost()) {
                 }
             }
         }
-
+    }
+    //Product Filter
+    $low =  null;
+    $high =  null;
+    $products = [];
+    $errors = [];
+    if(isset($_POST['Filtersubmit'])) {
+        $low = (int)filter_input(INPUT_POST, 'lowPrice', FILTER_SANITIZE_NUMBER_INT);
+        $high = (int)filter_input(INPUT_POST, 'highPrice', FILTER_SANITIZE_NUMBER_INT);
+        if (empty($low)){
+            $errors[] = "please insert something";
+        }
+        if (empty($high)){
+            $errors[] = "please insert something";
+        }
+        if (!empty($low)) {
+            if ($low < 50000) {
+                $errors[] = "Sorry, the product price begin in 50000";
+            }
+            if ($low > 140000) {
+                $errors[] = "Sorry, we dont have the product price more than 140000";
+            }
+        }
+        if (!empty($high)) {
+            if ($high < 50000) {
+                $errors[] = "Sorry, the product price begin in 50000";
+            }
+            if ($high > 140000) {
+                $errors[] = "Sorry, we dont have the product price more than 140000";
+            }
+        }
+        $hasErrors = count($errors) > 0;
+        if (false === $hasErrors) {
+            $products = getAllProductPrice($low, $high);
+        }
     }
 }
 

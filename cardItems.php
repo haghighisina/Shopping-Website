@@ -1,11 +1,11 @@
-<?php
+<?php /* @noinspection ALL */
 session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
 require_once __DIR__.'/action/cart_action.php';
 $products = getAllProduct();
-if (isLoggedIn()) {
-    setcookie('allProductsInCartForUser', json_encode($products), strtotime('+30 days'), "/");}?>
+if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), strtotime('+30 days'), "/");}?>
+<?php require_once __DIR__.'/action/navbar_filter.php'; ;?>
 <div class="container container-fluid mb-5">
 <div class="card-group">
     <?php if (isAdmin()):;?>
@@ -13,16 +13,16 @@ if (isLoggedIn()) {
         <div class="card">
             <div class="card-body text-center">
                 <a href="new_product.php">
-                    <i style="font-size: 5rem" class="fas fa-plus-square"></i>
+                    <i style="font-size: 50px" class="fas fa-plus-square"></i>
                 </a>
             </div>
         </div>
     </div>
     <?php endif;?>
     <?php foreach ($products as $product):;?>
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-5 cartP">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-5">
             <div class="card mx-1">
-                <div class="card-title text-center"><?= $product['title']; ?></div>
+                <div class="card-title text-center"><?= $product['title'];?></div>
                 <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
                 <div class="card-body">
                     <?= $product['description']; ?><hr> <?= convertToMoney($product['price']); ?>
@@ -64,4 +64,7 @@ if (isLoggedIn()) {
     <?php endforeach; ?>
 </div>
 </div>
+
+
+
 <?php require_once __DIR__.'/template/footer.php';?>

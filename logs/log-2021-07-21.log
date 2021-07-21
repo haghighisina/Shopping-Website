@@ -1,0 +1,1700 @@
+[2021-07-21 10:29:10 - INFO] http://localhost/
+Array
+(
+    [user_id] => 538207084
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 10:43:54 - INFO] http://localhost/Shopping-Cart/cardItems.php
+Array
+(
+    [user_id] => 1289573047
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 10:44:22 - INFO] http://localhost/Shopping-Cart/cardItems.php
+Array
+(
+    [user_id] => 811972188
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 10:44:30 - INFO] http://localhost/Shopping-Cart/cardItems.php
+Array
+(
+    [user_id] => 1497839345
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 11:34:28 - INFO] http://localhost/Shopping-Cart/login.php
+Array
+(
+    [user_id] => 1071336359
+    [user_ip] => 1
+    [user_rights] => ADMIN
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:19:50 - INFO] http://localhost/
+Array
+(
+    [user_id] => 1060267072
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:20:04 - INFO] http://localhost/Shopping-Cart/cardItems.php
+Array
+(
+    [user_id] => 996378999
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:20:24 - INFO] 
+Array
+(
+    [user_id] => 1491640374
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:39:23 - INFO] 
+Array
+(
+    [user_id] => 584056362
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:39:45 - INFO] 
+Array
+(
+    [user_id] => 1385718856
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:39:50 - INFO] 
+Array
+(
+    [user_id] => 1183797690
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:40:03 - INFO] 
+Array
+(
+    [user_id] => 1266586709
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:40:46 - INFO] 
+Array
+(
+    [user_id] => 844474394
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:42:20 - INFO] 
+Array
+(
+    [user_id] => 501306636
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:42:59 - INFO] 
+Array
+(
+    [user_id] => 1045528030
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:48:47 - INFO] 
+Array
+(
+    [user_id] => 649586074
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 13:53:55 - INFO] http://localhost/Shopping-Cart/filterproduct.php
+Array
+(
+    [user_id] => 1464438101
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 14:12:21 - INFO] http://localhost/
+Array
+(
+    [user_id] => 1034946425
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 14:51:31 - INFO] http://localhost/Shopping-Cart/filterproduct.php
+Array
+(
+    [user_id] => 1300332861
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-07-21 14:51:51 - INFO] http://localhost/Shopping-Cart/login.php
+Array
+(
+    [user_id] => 1438395112
+    [user_ip] => 1
+    [user_rights] => USER
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 7
+                    [title] => asdasd
+                    [description] => asdasd
+                    [price] => 123123
+                    [pic] => asset/image/1626776085.jpeg
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 8
+                    [title] => asda
+                    [description] => fdhfdgh
+                    [price] => 123123
+                    [pic] => asset/image/1626776094.jpeg
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 9
+                    [title] => fgjthj
+                    [description] => dsfsdg
+                    [price] => 123123
+                    [pic] => asset/image/1626776101.jpeg
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 10
+                    [title] => ghlkhjlyh
+                    [description] => wfsdfsfs
+                    [price] => 123123
+                    [pic] => asset/image/1626776108.jpeg
+                )
+
+        )
+
+)
+
+****************************************************************************************************

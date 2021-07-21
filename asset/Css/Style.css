@@ -407,3 +407,6 @@ footer .form-group{
 .dropdown>.dropdown-toggle:active {
     pointer-events: none;
 }
+.navbar .dropdown{
+    right: 70px
+}
