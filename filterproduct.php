@@ -1,17 +1,19 @@
-<?php /* @noinspection ALL */
+<?php
 session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
+$products = getAllProduct();
 require_once __DIR__.'/action/cart_action.php';
-if (isLoggedIn()){setcookie('allProductsInCartForUser',json_encode(getAllProduct()),strtotime('+30 days'), "/");}?>
-<?php require_once __DIR__.'/action/navbar_filter.php';
+if (isLoggedIn()){setcookie('allProductsInCartForUser',json_encode(getAllProduct()),strtotime('+30 days'), "/");}
+require_once __DIR__.'/action/navbar_filter.php';
 require_once __DIR__.'/errorMessages.php';?>
 <div class="container container-fluid mb-5">
     <div class="card-group">
         <?php if (isset($products)): foreach ($products as $product):;?>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-5">
-                    <div class="card mx-1">
+                    <div class="card mx-1 border-primary">
                         <div class="card-title text-center"><?= $product['title'];?></div>
+                        <div class="card-title text-center"><?= substr($product['time'],0,10);?></div>
                         <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
                         <div class="card-body">
                             <?= $product['description']; ?><hr> <?= convertToMoney($product['price']); ?>

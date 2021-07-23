@@ -1,13 +1,23 @@
-<?php /* @noinspection ALL */
+<?php
 session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
-require_once __DIR__.'/action/cart_action.php';
 $products = getAllProduct();
-if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), strtotime('+30 days'), "/");}?>
-<?php require_once __DIR__.'/action/navbar_filter.php'; ;?>
+require_once __DIR__.'/action/cart_action.php';
+if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), strtotime('+30 days'), "/");}
+require_once __DIR__.'/action/navbar_filter.php';?>
+<nav>
+    <ul class="pagination justify-content-center">
+        <?php
+        for ($page=1;$page<=$number_of_page;$page++):;?>
+            <li class="page-item">
+                <a href='<?=escape($_SERVER['PHP_SELF']);?>?page=<?=escape($page);?>' class="page-link">Page ( <?= $page; ?> )</a>
+            </li>
+        <?php endfor;?>
+    </ul>
+</nav>
 <div class="container container-fluid mb-5">
-<div class="card-group">
+    <div class="card-group">
     <?php if (isAdmin()):;?>
     <div class="col-sm-4 col-md-3 mt-5">
         <div class="card">
@@ -21,7 +31,7 @@ if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), s
     <?php endif;?>
     <?php foreach ($products as $product):;?>
         <div class="col-sm-6 col-md-4 col-lg-3 mt-5">
-            <div class="card mx-1">
+            <div class="card mx-1 border-primary">
                 <div class="card-title text-center"><?= $product['title'];?></div>
                 <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
                 <div class="card-body">
@@ -64,7 +74,4 @@ if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), s
     <?php endforeach; ?>
 </div>
 </div>
-
-
-
 <?php require_once __DIR__.'/template/footer.php';?>

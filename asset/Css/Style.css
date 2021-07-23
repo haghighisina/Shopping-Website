@@ -380,7 +380,6 @@ footer .form-group{
         position: absolute;
         left: 105px;
     }
-
 }
 .card-footer .btn{
     padding: 5px 30px;
@@ -408,5 +407,12 @@ footer .form-group{
     pointer-events: none;
 }
 .navbar .dropdown{
-    right: 70px
+    right: 30px
+}
+.form-group .btn-outline-primary, .input{
+    font-size: 11px;
+}
+.form-group .filter{
+    position: relative;
+    left: 15px
 }

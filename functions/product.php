@@ -89,15 +89,35 @@ function deleteProduct(int $productId):int{
     return (int)$statement->execute($data);
 }
 function getAllProductPrice(int $low, int $high):array{
-    $sql = "SELECT * FROM products WHERE price BETWEEN ".$low." AND ".$high." ORDER BY price ASC";
+    $sql = "SELECT * FROM products 
+            WHERE price BETWEEN ".$low." 
+            AND ".$high." ORDER BY id ASC";
     $result = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-    if (!$result){return [];}
+    if (!$result){
+        return [];
+    }
     $result->execute();
     $products = [];
-    while($row = $result->fetch()){$products[] = $row;}
+    while($row = $result->fetch()){
+        $products[] = $row;
+    }
     return $products;
 }
-
+function filterProduct( string $low, string $high):array{
+    $sql = "SELECT * FROM products 
+            WHERE time BETWEEN '$low' 
+            AND '$high' ";
+    $result = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    if (!$result){
+        return [];
+    }
+    $result->execute();
+    $products = [];
+    while($row = $result->fetch()){
+        $products[] = $row;
+    }
+    return $products;
+}
 
 
 

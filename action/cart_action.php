@@ -1,4 +1,4 @@
-<?php
+<?php /* @noinspection All */
 if (isPost()) {
     if (isset($_POST['submit'])) {
         $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -216,7 +216,35 @@ if (isPost()) {
             $products = getAllProductPrice($low, $high);
         }
     }
+    if(isset($_POST['filter'])){
+        $beginTime =  filter_input(INPUT_POST,"low",FILTER_SANITIZE_SPECIAL_CHARS);
+        $lastTime =  filter_input(INPUT_POST,"high",FILTER_SANITIZE_SPECIAL_CHARS);
+        $products = filterProduct($beginTime,$lastTime);
+    }
 }
+//Pagination
+if (isset($_GET)) {
+    $results_per_page = 4;
+    $sql = "SELECT * FROM products";
+    $result = getDb()->query($sql);
 
-
+    $number_of_result = $result->rowCount();
+    $number_of_page = ceil($number_of_result / $results_per_page);
+    if (!isset($_GET['page'])) {
+        $page = 1;
+    } else {
+        $page = $_GET['page'];
+    }
+    $this_page_first_result = ($page - 1) * $results_per_page;
+    $sql = "SELECT * FROM products LIMIT " . $this_page_first_result . " , " . $results_per_page;
+    $result = getDb()->query($sql);
+    if (!$result) {
+        return [];
+    }
+    $result->execute();
+    $products = [];
+    while ($row = $result->fetch()) {
+        $products[] = $row;
+    }
+}
 
