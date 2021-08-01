@@ -38,19 +38,19 @@ if (isServer("login.php")){
             if (false === $hasErrors) {
                 if (0 === count($errors)) {
                     $_SESSION['userRights'] = $userData['userRights'];
-                    $userInfo = getUserDataForUsername($username);
-                    if (isset($_COOKIE['token']) && $_COOKIE['token'] === $userInfo['token']) {
+                    if (isset($_COOKIE['token']) && $_COOKIE['token'] === $userData['token']) {
                         setcookie('token', $_COOKIE['token'], 0, '/');
-                        header("location: ".$_SERVER['PHP_SELF']);
+                        header("location: " . $_SERVER['PHP_SELF']);
                         exit();
                     }
                     //regenerate new user_id and token and replace them with the old ones every time to prevent Session Hijacking
                     session_regenerate_id(true);
-                    ChangeUserId(getCurrentUserId(), getRandomHash(30),$userData['id']);
-                    ChangeUserIdForCart(getCurrentUserId(), $userData['user_id']);
+                    $userId = getCurrentUserId();
+                    ChangeUserId($userId, getRandomHash(30), $userData['id']);
+                    ChangeUserIdForCart($userId, $userData['user_id']);
                     $userdatas = getUserDataForUsername($username);
-					//save user_agent
-					$_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+                    //save user_agent
+                    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
                     setcookie('userId',$userdatas['user_id'], 0, '/');
                     setcookie('token', $userdatas['token'], 0, '/');
                     notificationMessage('Welcome back ' . $userData['username']);

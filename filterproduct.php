@@ -1,15 +1,13 @@
-<?php
-session_start();
+<?php session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
-$products = getAllProduct();
 require_once __DIR__.'/action/cart_action.php';
 if (isLoggedIn()){setcookie('allProductsInCartForUser',json_encode(getAllProduct()),strtotime('+30 days'), "/");}
 require_once __DIR__.'/action/navbar_filter.php';
 require_once __DIR__.'/errorMessages.php';?>
 <div class="container container-fluid mb-5">
     <div class="card-group">
-        <?php if (isset($products)): foreach ($products as $product):;?>
+        <?php if (isset($filter_products)): foreach ($filter_products as $product):;?>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-5">
                     <div class="card mx-1 border-primary">
                         <div class="card-title text-center"><?= $product['title'];?></div>
@@ -37,7 +35,7 @@ require_once __DIR__.'/errorMessages.php';?>
                     </div>
                 </div>
         <?php endforeach;
-        else: if (empty($products)) echo "<div class='container alert alert-danger'>Sorry, nothig was found</div>";
+        else: if (empty($filter_products)) echo "<div class='container alert alert-danger'>Sorry, nothig was found</div>";
         endif;?>
     </div>
 </div>

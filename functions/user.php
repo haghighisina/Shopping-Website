@@ -86,19 +86,20 @@ function ChangeUserId($userID, $token,$ID){
     ];
     return $statement->execute($data);
 }
+//change user id every time to prevent Session Hijacking
+function ChangeUserIdForCart($userID,$ID){
+    $sql = "UPDATE cart SET user_id= :UserID WHERE user_id= :user_ID";
+    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    $data = [
+        ':UserID'=>$userID,
+        ':user_ID'=>$ID
+    ];
+    return $statement->execute($data);
+}
 function ifUserAgentMatche():bool{
     if(!isset($_SESSION['user_agent'])) { return false; }
     if(!isset($_SERVER['HTTP_USER_AGENT'])) { return false; }
     return ($_SESSION['user_agent'] === $_SERVER['HTTP_USER_AGENT']);
-}
-function ChangeUserIdForCart($userID,$ID){
-    $sql = "UPDATE cart SET user_id= :UserID WHERE user_id= :ID";
-    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-    $data = [
-        ':UserID'=>$userID,
-        ':ID'=>$ID
-    ];
-    return $statement->execute($data);
 }
 function ifUserNameExist(string $username):bool{
     $sql = "SELECT 1 FROM user WHERE username= :Username";

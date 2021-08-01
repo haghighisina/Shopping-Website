@@ -213,7 +213,7 @@ if (isPost()) {
         }
         $hasErrors = count($errors) > 0;
         if (false === $hasErrors) {
-            $products = getAllProductPrice($low, $high);
+            $filter_products = getAllProductPrice($low, $high);
         }
     }
     if(isset($_POST['filter'])){

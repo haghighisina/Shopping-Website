@@ -22,12 +22,11 @@ if (isLoggedIn()):;?>
             <a href="shopping_cart.php?delete=delete&id=<?= $product['product_id'];?>"
                class="product_id btn btn-danger btn-sm " onclick="return confirm('Are you sure') ">Delete</a>
         </div>
-        <div class="col-2">
+        <div class="col-2 filter" id="result">
             <form action="<?= escape($_SERVER['PHP_SELF']);?>" method="POST" class="MyClass">
-                <input type="hidden" name="productPrice" value="<?= $product['price'];?>">
-                <input type="hidden" name="productId" value="<?= $product['product_id'];?>">
-                <input type="number" name="itemQuantity" class="form-control w-100" max="10" value="<?= $product['quantity'];?>">
-                <input type="submit" name="submit" class="btn btn-primary form-control">
+                <input type="hidden" name="productPrice" id="productPrice" class="productPrice" value="<?= $product['price'];?>">
+                <input type="hidden" name="productId" id="productId" class="productId" value="<?= $product['product_id'];?>">
+                <input type="number" name="itemQuantity" id="itemQuantity" class="form-control w-100 itemQuantity" min="1" max="10" value="<?= $product['quantity'];?>">
             </form>
         </div>
         <div class="col-2 text-danger text-right">
@@ -39,9 +38,7 @@ if (isLoggedIn()):;?>
         <a href="shopping_cart.php?action=Clear_Cart" class="btn btn-danger col-2 clear-cart
     <?= $cartItems >= 1 ? '' : 'disabled';?>" onclick="return confirm('Are you sure')">Clear Cart</a>
         &nbsp; <span class="text-success"><?= $cartItems; ?> &nbsp;</span> Artikel:&nbsp;
-        <span class="text-danger font-weight-bold">
-    <?= convertToMoney($cartSum);?> €
-    </span>
+          <span class="text-danger font-weight-bold"><?= convertToMoney($cartSum);?>&nbsp;€ </span>
     </div>
     <div class="row cart-checkout">
         <a href="checkout.php" class="btn btn-primary col-12">Go to Cart</a>
@@ -49,4 +46,3 @@ if (isLoggedIn()):;?>
 </section>
 <?php endif;?>
 <?php require_once __DIR__.'/template/footer.php';?>
-

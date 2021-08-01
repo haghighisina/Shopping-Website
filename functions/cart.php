@@ -64,7 +64,7 @@ function getCartAllItemsForUserId(?int $userId):array{
     if(null === $userId){
         return [];
     }
-    $sql = "SELECT product_id,title,description,price,pic,product_price,quantity,created
+    $sql = "SELECT product_id,user_id,title,description,price,pic,product_price,quantity,created
             FROM cart 
             JOIN products ON(cart.product_id = products.id)
             WHERE user_id = :userId";
@@ -100,11 +100,11 @@ function deleteProductInCartForUserId(int $userId, int $productId):int{
     ];
     return (int)$statement->execute($data);
 }
-function updateCartItemsQuantity(int $quantity, int $product_price, int $product_id):int{
+function updateCartItemsQuantity(int $quantity, int $product_price, int $product_id):bool{
     $sql = "UPDATE cart 
             SET quantity= :Quantity, product_price= :Product_price 
             WHERE product_id= :ID";
-    $statement = getDb()->prepare($sql,[PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+    $statement = getDb()->prepare($sql);
     $data = [
         ':Quantity'=>$quantity,
         ':Product_price'=>$product_price,
