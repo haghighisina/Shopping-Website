@@ -11,7 +11,7 @@ if (isPost()) {
                 exit();
             } else {
                 addToCart($userId, $product_name, $product_id, $product_price);
-                notificationMessage("product ".$product_name." has added in cart");
+                notificationMessage("product " . $product_name . " has added in cart");
                 header('location: ' . $_SERVER['PHP_SELF']);
                 exit();
             }
@@ -42,7 +42,7 @@ if (isPost()) {
         $price = 0;
         $errors = [];
         $hasErrors = false;
-        require_once __DIR__ .'/../functions/product.php';
+        require_once __DIR__ . '/../functions/product.php';
         if (isset($_POST['new_submit'])) {
             $product_title = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
             $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -83,7 +83,7 @@ if (isPost()) {
                     'image/jpeg' => 'jpeg'
                 ];
                 if (!in_array($type, array_keys($allowedfiles))) {
-                    notificationErrorMessage("This data ".$type." type is not allowed");
+                    notificationErrorMessage("This data " . $type . " type is not allowed");
                     header("location: " . $_SERVER['PHP_SELF']);
                     exit();
                 }
@@ -126,7 +126,6 @@ if (isPost()) {
             if ($price === 0) {
                 $errors[] = "insert the price";
             }
-
             $isFile = isset($_FILES['image']) && count($_FILES['image']) > 0;
             if (!$isFile) {
                 header('location: ' . $_SERVER['PHP_SELF']);
@@ -136,7 +135,7 @@ if (isPost()) {
             $filesize = filesize($dataFile);
             if (!$dataFile || !$filesize) {
                 notificationErrorMessage("The image is empty");
-                header("location: " . SITE_URL."edit_product.php");
+                header("location: " . SITE_URL . "edit_product.php");
                 exit();
             }
 
@@ -153,8 +152,8 @@ if (isPost()) {
                     'image/jpeg' => 'jpeg'
                 ];
                 if (!in_array($type, array_keys($allowedfiles))) {
-                    notificationErrorMessage("This data ".$type." type is not allowed");
-                    header("location: ".SITE_URL."cardItems.php");
+                    notificationErrorMessage("This data " . $type . " type is not allowed");
+                    header("location: " . SITE_URL . "cardItems.php");
                     exit();
                 }
 
@@ -175,24 +174,24 @@ if (isPost()) {
                 }
                 if (true === $created) {
                     notificationMessage("The Product hase edited successfully");
-                    header("location: ".SITE_URL."cardItems.php");
+                    header("location: " . SITE_URL . "cardItems.php");
                     exit();
                 }
             }
         }
     }
     //Product Filter
-    $low =  null;
-    $high =  null;
+    $low = null;
+    $high = null;
     $products = [];
     $errors = [];
-    if(isset($_POST['Filtersubmit'])) {
+    if (isset($_POST['Filtersubmit'])) {
         $low = (int)filter_input(INPUT_POST, 'lowPrice', FILTER_SANITIZE_NUMBER_INT);
         $high = (int)filter_input(INPUT_POST, 'highPrice', FILTER_SANITIZE_NUMBER_INT);
-        if (empty($low)){
+        if (empty($low)) {
             $errors[] = "please insert something";
         }
-        if (empty($high)){
+        if (empty($high)) {
             $errors[] = "please insert something";
         }
         if (!empty($low)) {
@@ -216,12 +215,71 @@ if (isPost()) {
             $filter_products = getAllProductPrice($low, $high);
         }
     }
-    if(isset($_POST['filter'])){
-        $beginTime =  filter_input(INPUT_POST,"low",FILTER_SANITIZE_SPECIAL_CHARS);
-        $lastTime =  filter_input(INPUT_POST,"high",FILTER_SANITIZE_SPECIAL_CHARS);
-        $products = filterProduct($beginTime,$lastTime);
+
+    //Filter Time
+    $beginTime1 = null;
+    $lastTime1 = null;
+    $errors = [];
+    $hasErrors = false;
+    if (isset($_POST['filter'])) {
+        static $form1_low = "2019-07-22";
+        static $form1_high = "2020-08-22";
+        $beginTime1 = filter_input(INPUT_POST, "low1", FILTER_SANITIZE_SPECIAL_CHARS);
+        $lastTime1 = filter_input(INPUT_POST, "high1", FILTER_SANITIZE_SPECIAL_CHARS);
+        if (empty($beginTime1)) {
+            $errors[] = "Somthing went wrong, Please try again later";
+        }
+        if (empty($lastTime1)) {
+            $errors[] = "Somthing went wrong, Please try again later";
+        }
+        if (!empty($beginTime1)) {
+            if ($beginTime1 !== $form1_low) {
+                $errors[] = "Somthing went wrong, Please try again later";
+            }
+        }
+        if (!empty($lastTime1)) {
+            if ($lastTime1 !== $form1_high) {
+                $errors[] = "Somthing went wrong, Please try again later";
+            }
+        }
+        $hasErrors = count($errors) > 0;
+        if (false === $hasErrors) {
+            $filter_products = filterProduct($beginTime1, $lastTime1);
+        }
+    }
+
+    $beginTime2 = null;
+    $lastTime2 = null;
+    $errors = [];
+    $hasErrors = false;
+    if (isset($_POST['filter2'])) {
+        static $form2_low = "2019-07-22";
+        static $form2_high = "2021-08-22";
+        $beginTime2 = filter_input(INPUT_POST, "low2", FILTER_SANITIZE_SPECIAL_CHARS);
+        $lastTime2 = filter_input(INPUT_POST, "high2", FILTER_SANITIZE_SPECIAL_CHARS);
+        if (empty($beginTime2)) {
+            $errors[] = "Somthing went wrong, Please try again later";
+        }
+        if (empty($lastTime2)) {
+            $errors[] = "Somthing went wrong, Please try again later";
+        }
+        if (!empty($beginTime2)) {
+            if ($beginTime2 !== $form2_low) {
+                $errors[] = "Somthing went wrong, Please try again later";
+            }
+        }
+        if (!empty($lastTime2)) {
+            if ($lastTime2 !== $form2_high) {
+                $errors[] = "Somthing went wrong, Please try again later";
+            }
+        }
+        $hasErrors = count($errors) > 0;
+        if (false === $hasErrors) {
+            $filter_products = filterProduct($beginTime2, $lastTime2);
+        }
     }
 }
+
 //Pagination
 if (isset($_GET)) {
     $results_per_page = 4;

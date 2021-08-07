@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 require_once __DIR__.'/includes.php';
 require_once __DIR__.'/functions/product.php';
 $products = getAllProduct();
