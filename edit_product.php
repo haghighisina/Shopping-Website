@@ -9,7 +9,7 @@ if (isset($_GET['product_id'])){
 }
 if (isAdmin()):;?>
     <div class="container mt-5">
-        <?php
+        <?php $categories = getCategories();
         if (!empty($products)):;
             foreach ($products as $product):;?>
                 <form action="<?= escape($_SERVER['PHP_SELF']);?>" method="POST" enctype="multipart/form-data">
@@ -22,6 +22,14 @@ if (isAdmin()):;?>
                             <div class="form-group">
                                 <label for="name">Product Name</label>
                                 <input type="text" name="name" value="<?= $product['title']??'Product-1'?>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="categories">Categories</label>
+                                <ul>
+                                    <?php foreach($categories as $category):;?>
+                                    <li><?= $category['label'];?></li>
+                                    <?php endforeach;?>
+                                </ul>
                             </div>
                             <div class="form-group">
                                 <label for="description">Product Description</label>

@@ -21,11 +21,12 @@
             <ul class="dropdown-menu" style="right: 1px">
                 <li style="width: 300px">
                     <form method="POST" action="<?= escape('filterproduct.php');?>" class="form-group d-flex w-100" >
-                        <input type="text" name="lowPrice" class="form-control input px-3 text-center " value="50000" min="50000" max="140000">
-                        <input type="text" name="highPrice" class="form-control input float-right px-3 " value="140000" min="50000" max="140000">
-                        <button type="submit" class="form-control btn btn-outline-primary btn-small center w-25" aria-hidden="true" name="Filtersubmit">
+                        &nbsp;<input type="text" name="lowPrice" class="form-control input px-3 text-center" value="50000" min="50000" max="140000">
+                        &nbsp;<span> - </span>&nbsp;
+                        <input type="text" name="highPrice" class="form-control input float-right px-3" value="140000" min="50000" max="140000">
+                        &nbsp;<button type="submit" class="form-control btn btn-outline-primary btn-small center w-25" aria-hidden="true" name="Filtersubmit">
                             <i class="fa fa-play"></i>
-                        </button>
+                        </button>&nbsp;
                     </form>
                 </li>
             </ul>

@@ -36,6 +36,7 @@ if (isPost()) {
             header('location: ' . $_SERVER['PHP_SELF']);
             exit();
         }
+
         //New Product
         $product_title = "";
         $description = "";

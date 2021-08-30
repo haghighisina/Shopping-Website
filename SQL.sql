@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 12:53 PM
+-- Generation Time: Aug 30, 2021 at 12:27 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `product_name` varchar(50) DEFAULT NULL,
   `product_price` int(10) DEFAULT NULL,
   `product_id` int(10) UNSIGNED DEFAULT NULL,
@@ -42,9 +42,33 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `product_name`, `product_price`, `product_id`, `quantity`, `created`) VALUES
-(147, 564266361, 'Product 1', 600000, 1, 10, '2021-03-19 20:01:15'),
-(150, 859856978, 'Product 4', 240000, 4, 2, '2021-03-22 09:17:57'),
-(154, 859856978, 'Product 2', 50000, 2, 1, '2021-04-08 12:45:44');
+(221, 1157467093, 'Product 2', 50000, 2, 1, '2021-07-31 17:38:47'),
+(222, 1157467093, 'Product 1', 60000, 1, 1, '2021-07-31 17:38:49'),
+(225, 1157467093, 'Product 3', 1260000, 3, 9, '2021-08-01 16:09:23'),
+(226, 1157467093, 'Product 4', 240000, 4, 2, '2021-08-01 16:09:24'),
+(227, 1157467093, 'fgjthj', 861861, 9, 7, '2021-08-01 16:09:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `label` varchar(50) NOT NULL DEFAULT '',
+  `parentId` int(10) UNSIGNED DEFAULT NULL,
+  `position` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `label`, `parentId`, `position`) VALUES
+(1, 'tablet', NULL, 0),
+(2, 'mobile', NULL, 0),
+(3, 'Pc', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -547,18 +571,25 @@ CREATE TABLE `products` (
   `title` varchar(191) NOT NULL,
   `description` text NOT NULL DEFAULT '',
   `price` int(11) NOT NULL DEFAULT 0,
-  `pic` varchar(100) NOT NULL
+  `pic` varchar(100) NOT NULL,
+  `time` timestamp NULL DEFAULT current_timestamp(),
+  `category_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `description`, `price`, `pic`) VALUES
-(1, 'Product 1', 'Product Test 1', 60000, 'asset/image/2.jpg'),
-(2, 'Product 2', 'Product Test 2', 50000, 'asset/image/3.jpg'),
-(3, 'Product 3', 'Product Test 3', 140000, 'asset/image/2.jpg'),
-(4, 'Product 4', 'Product Test 4', 120000, 'asset/image/4.jpg');
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `pic`, `time`, `category_id`) VALUES
+(1, 'Product 1', 'Product Test 1', 60000, 'asset/image/2.jpg', '2021-07-22 08:51:27', NULL),
+(2, 'Product 2', 'Product Test 2', 50000, 'asset/image/3.jpg', '2021-07-22 08:51:27', NULL),
+(3, 'Product 3', 'Product Test 3', 140000, 'asset/image/2.jpg', '2021-07-22 08:51:27', NULL),
+(4, 'Product 4', 'Product Test 4', 120000, 'asset/image/4.jpg', '2021-07-22 08:51:27', NULL),
+(5, 'product 5', 'product 5', 80000, 'asset/image/2.jpg', '2021-07-23 13:22:00', NULL),
+(7, 'asdasd', 'asdasd', 123123, 'asset/image/1626776085.jpeg', '2019-07-22 08:51:27', NULL),
+(8, 'asda', 'fdhfdgh', 123123, 'asset/image/1626776094.jpeg', '2019-08-22 08:51:27', NULL),
+(9, 'fgjthj', 'dsfsdg', 123123, 'asset/image/1626776101.jpeg', '2020-07-22 08:51:27', NULL),
+(10, 'ghlkhjlyh', 'wfsdfsfs', 123123, 'asset/image/1626776108.jpeg', '2020-08-22 08:51:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -572,17 +603,17 @@ CREATE TABLE `user` (
   `password` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `email` varchar(512) CHARACTER SET utf8mb4 NOT NULL,
-  `userRights` enum('USER','ADMIN') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'USER'
+  `userRights` enum('USER','ADMIN') CHARACTER SET utf8mb4 NOT NULL DEFAULT 'USER',
+  `token` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `user_id`, `email`, `userRights`) VALUES
-(145, 'admin', '$2y$10$uSFLCAZe1yGZYbfNEGTyLuxaq3ZcvJeSv0VG8StrUuZ0/Xc5Z2hb6', 648893173, 'sina@gmail.com', 'ADMIN'),
-(146, 'mark', '$2y$10$mdJtDBWjsDxXV0DW968hb.WzvsDgtiiA89yDOjsrCQ2ttaH7miV1K', 1544656669, 'mark@gmail.com', 'USER'),
-(147, 'sina', '$2y$10$3NqXXsIkyKqfXDtR0nU.SuN89H/NeS9mCtpk6UvZ4bwkhdmgvdg2e', 265924370, 'sinas@gmail.com', 'USER');
+INSERT INTO `user` (`id`, `username`, `password`, `user_id`, `email`, `userRights`, `token`) VALUES
+(145, 'admin', '$2y$10$jmDghdItnTsaV3664gZHX.sq360zAJEMFmAAbJZhuzGo/K8BQQPbu', 388614498, 'sinaasdasn@gmail.com', 'ADMIN', 'b76e27f9873d7f456cde533b437659'),
+(156, 'sina', '$2y$10$zQfas2c0.kPOU4MH/ICTYOZjGzCQO6GkK14DfRtTyk5deQkzkV6.G', 1157467093, 'sina@gmail.com', 'USER', 'f7179841064e64e8afc65c418d786b');
 
 --
 -- Indexes for dumped tables
@@ -595,6 +626,12 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `product_id_user_id` (`product_id`,`user_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `delivey_adresses`
@@ -613,14 +650,16 @@ ALTER TABLE `log`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_product_category` (`category_id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -630,7 +669,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `delivey_adresses`
@@ -648,13 +693,13 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- Constraints for dumped tables
@@ -671,6 +716,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `delivey_adresses`
   ADD CONSTRAINT `FK_user_delivery_adresses` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `FK_product_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

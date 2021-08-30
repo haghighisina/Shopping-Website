@@ -1,4 +1,7 @@
 <?php /** @noinspection ALL */
+if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
+if(!defined("BASE_URL")) define("BASE_URL",SITE_URL);
+
 function isPost():bool{
     return strtolower($_SERVER['REQUEST_METHOD']) === 'post';
 }
@@ -16,9 +19,6 @@ function filterURL(){
         exit();
     }
 }
-if(!defined("SITE_URL")) define("SITE_URL","http://localhost/Shopping-Cart/");
-if(!defined("BASE_URL")) define("BASE_URL",SITE_URL);
-
 function isServer($base):bool{
     if($_SERVER['HTTP_HOST'] == SITE_URL){
         if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER']==BASE_URL."/".$base){
