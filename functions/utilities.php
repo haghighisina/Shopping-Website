@@ -85,7 +85,7 @@ function emailValidate(string $email):bool{
 }
 function checkQueryString(){
     $query_string = $_SERVER['QUERY_STRING'];
-    $list = array("script","<",">","'","or","document","hack","cookie","alert","%3E","%3C","%27");
+    $list = array("","<",">","'","","document","hack","cookie","alert","%3E","%3C","%27");
     foreach ($list as $key) {
         if (strpos($query_string, $key)){
             die("URL Error");

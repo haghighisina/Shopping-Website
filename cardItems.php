@@ -32,7 +32,7 @@ require_once __DIR__.'/action/navbar_filter.php';?>
         <div class="col-sm-6 col-md-4 col-lg-3 mt-5">
             <div class="card mx-1 border-primary">
                 <div class="card-title text-center"><?= $product['title'];?></div>
-                <img class="card-img-top zoom" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
+                <img class="card-img-top zoom" style="height: 200px" src="<?= $product['pic'] ? $product['pic'] : "asset/image/2.jpg";?>" alt="Card image cap">
                 <div class="card-body">
                     <?= $product['description']; ?><hr> <?= convertToMoney($product['price']); ?>
                 </div>
@@ -60,8 +60,8 @@ require_once __DIR__.'/action/navbar_filter.php';?>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button type="submit" name="delete" class="btn btn-outline-danger mx-3 btn-sm" onclick="return confirm('Are you sure')">Delete</button>
-                                    <a href="<?php printf("%s?product_id=%s",
-                                    'edit_product.php',$product['id']);?>"
+                                    <a href="<?php escape(printf("%s?productId=%s&categoryId=%s",
+                                    'edit_product.php',$product['id'],$product['category_id']));?>"
                                     class="btn btn-outline-primary mx-3 btn-sm">Edit</a>
                                 </div>
                             </div>

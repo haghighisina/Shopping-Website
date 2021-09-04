@@ -88,7 +88,7 @@ function deleteProduct(int $productId):int{
     ];
     return (int)$statement->execute($data);
 }
-function getAllProductPrice(int $low, int $high):array{
+function filterProductPrice(int $low, int $high):array{
     $sql = "SELECT * FROM products 
             WHERE price BETWEEN ".$low." 
             AND ".$high." ORDER BY id ASC";
@@ -118,6 +118,20 @@ function filterProduct( string $low, string $high):array{
     }
     return $products;
 }
-
+function assignCategory(int $productId, ?int $categoryId):bool{
+    $sql = "UPDATE products
+            SET category_id = :categoryID
+            WHERE id = :productID";
+    $statement = getDb()->prepare($sql);
+    if (false === $statement){
+        return false;
+    }
+    $data = [
+        ':categoryID' => $categoryId,
+        ':productID' => $productId
+    ];
+    $statement->execute($data);
+    return $statement->rowCount()>0;
+}
 
 

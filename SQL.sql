@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 12:27 PM
+-- Generation Time: Sep 04, 2021 at 12:33 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -66,9 +66,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `label`, `parentId`, `position`) VALUES
-(1, 'tablet', NULL, 0),
-(2, 'mobile', NULL, 0),
-(3, 'Pc', NULL, 0);
+(1, 'Electronic', 4, 0),
+(2, 'Audio', 3, 0),
+(3, 'Foto', 4, 0),
+(4, 'service', 1, 0),
+(5, 'Fotographie', 3, 0),
+(6, 'device', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -581,15 +584,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `pic`, `time`, `category_id`) VALUES
-(1, 'Product 1', 'Product Test 1', 60000, 'asset/image/2.jpg', '2021-07-22 08:51:27', NULL),
-(2, 'Product 2', 'Product Test 2', 50000, 'asset/image/3.jpg', '2021-07-22 08:51:27', NULL),
-(3, 'Product 3', 'Product Test 3', 140000, 'asset/image/2.jpg', '2021-07-22 08:51:27', NULL),
+(1, 'Product 1', 'Product Test 1', 60000, 'asset/image/1630493383.jpeg', '2021-07-22 08:51:27', 1),
+(2, 'Product 2', 'Product Test 2', 50000, 'asset/image/3.jpg', '2021-07-22 08:51:27', 2),
+(3, 'Product 3', 'Product Test 3', 140000, 'asset/image/2.jpg', '2021-07-22 08:51:27', 5),
 (4, 'Product 4', 'Product Test 4', 120000, 'asset/image/4.jpg', '2021-07-22 08:51:27', NULL),
 (5, 'product 5', 'product 5', 80000, 'asset/image/2.jpg', '2021-07-23 13:22:00', NULL),
-(7, 'asdasd', 'asdasd', 123123, 'asset/image/1626776085.jpeg', '2019-07-22 08:51:27', NULL),
-(8, 'asda', 'fdhfdgh', 123123, 'asset/image/1626776094.jpeg', '2019-08-22 08:51:27', NULL),
+(7, 'asdasd', 'asdasd', 123123, 'asset/image/1626776085.jpeg', '2019-07-22 08:51:27', 4),
+(8, 'asda', 'fdhfdgh', 123123, 'asset/image/1626776094.jpeg', '2019-08-22 08:51:27', 3),
 (9, 'fgjthj', 'dsfsdg', 123123, 'asset/image/1626776101.jpeg', '2020-07-22 08:51:27', NULL),
-(10, 'ghlkhjlyh', 'wfsdfsfs', 123123, 'asset/image/1626776108.jpeg', '2020-08-22 08:51:27', NULL);
+(10, 'Car', 'wfsdfsfs', 123123, 'asset/image/1630675961.jpeg', '2020-08-22 08:51:27', 5);
 
 -- --------------------------------------------------------
 
@@ -612,7 +615,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `user_id`, `email`, `userRights`, `token`) VALUES
-(145, 'admin', '$2y$10$jmDghdItnTsaV3664gZHX.sq360zAJEMFmAAbJZhuzGo/K8BQQPbu', 388614498, 'sinaasdasn@gmail.com', 'ADMIN', 'b76e27f9873d7f456cde533b437659'),
+(145, 'admin', '$2y$10$jmDghdItnTsaV3664gZHX.sq360zAJEMFmAAbJZhuzGo/K8BQQPbu', 992975437, 'sinaasdasn@gmail.com', 'ADMIN', '3af96c2535ec4e6581e36a7e6fe8e5'),
 (156, 'sina', '$2y$10$zQfas2c0.kPOU4MH/ICTYOZjGzCQO6GkK14DfRtTyk5deQkzkV6.G', 1157467093, 'sina@gmail.com', 'USER', 'f7179841064e64e8afc65c418d786b');
 
 --
@@ -651,7 +654,7 @@ ALTER TABLE `log`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_product_category` (`category_id`);
+  ADD KEY `FK_category_ID` (`category_id`);
 
 --
 -- Indexes for table `user`
@@ -675,7 +678,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `delivey_adresses`
@@ -721,7 +724,7 @@ ALTER TABLE `delivey_adresses`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `FK_product_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `FK_category_ID` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

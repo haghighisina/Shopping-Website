@@ -213,7 +213,7 @@ if (isPost()) {
         }
         $hasErrors = count($errors) > 0;
         if (false === $hasErrors) {
-            $filter_products = getAllProductPrice($low, $high);
+            $filter_products = filterProductPrice($low, $high);
         }
     }
 
@@ -304,6 +304,37 @@ if (isset($_GET)) {
     $products = [];
     while ($row = $result->fetch()) {
         $products[] = $row;
+    }
+}
+
+//Category
+$allCategories = getAllCategories();
+$categories = null;
+$product_id = null;
+if (isset($_GET['productId'])) {
+    $product_id = (int)filter_input(INPUT_GET,'productId',FILTER_SANITIZE_NUMBER_INT);
+    $category_id = (int)filter_input(INPUT_GET,'categoryId',FILTER_SANITIZE_NUMBER_INT);
+    $productsById = getProductById($product_id);
+    $categories = getCategories($category_id);
+}
+if (isset($_GET['category_id']) && isset($_GET['product_id'])) {
+    $category_id = (int)filter_input(INPUT_GET, 'category_id', FILTER_SANITIZE_NUMBER_INT);
+    $productID = (int)filter_input(INPUT_GET, 'product_id', FILTER_SANITIZE_NUMBER_INT);
+
+    $id = null;
+    if ($category_id > 0){
+        $category =  findCategoryById($category_id);
+        $id = $category['id'];
+    }
+    $assigned = assignCategory($productID, $id);
+    if (!$assigned) {
+        notificationErrorMessage("Sorry, the product " . $productID . " could not assigned to category " . $category['label']);
+        header("location: cardItems.php");
+    }
+    if ($assigned) {
+        notificationMessage("product " . $productID . " was assigned to category " . $category['label']);
+        header("location: cardItems.php");
+        exit();
     }
 }
 
