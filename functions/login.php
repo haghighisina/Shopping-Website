@@ -1,5 +1,5 @@
 <?php
-if (isServer("login.php")){
+if(isServer("login.php")){
     if (isPost()) {
         $captcha = "";
         if (isset($_POST['submit'])) {
@@ -14,10 +14,10 @@ if (isServer("login.php")){
                 $errors[] = "Password is empty";
             }
             $userData = getUserDataForUsername($username);
-            if ((bool)$username && 0 === count($userData)) {
+            if (true === (bool)$username && 0 === count($userData)) {
                 $errors[] = "Name does not exist ";
             }
-            if ((bool)$password && isset($userData['password']) &&
+            if (true === (bool)$password && isset($userData['password']) &&
                 false === password_verify($password, $userData['password'])){
                 $errors[] = "Password is not right";
             }
@@ -28,7 +28,7 @@ if (isServer("login.php")){
                 $errors[] = "Check the captcha please";
             }
             $secretKey = getRandomHash(30);
-            $responseKey = isset($_POST['g-recaptcha-response'])?$_POST['g-recaptcha-response']:'';
+            $responseKey = isset($_POST['g-recaptcha-response'])??$_POST['g-recaptcha-response'];
             $userIP = $_SERVER['REMOTE_ADDR'];
             $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
             if (!isToken($_POST['token'])) {

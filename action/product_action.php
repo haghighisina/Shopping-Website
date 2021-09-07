@@ -27,7 +27,8 @@ if (isset($_POST['Quantity'])){
         header('location: '.$_SERVER['PHP_SELF']);
         exit();
     }
-    if(true === (bool)updateCartItemsQuantity($product_quantity, $total_price, $product_id)) {
+    $updateProductQuantity = updateCartItemsQuantity($product_quantity, $total_price, $product_id, $userId);
+    if(true === $updateProductQuantity){
         notificationMessage('The quantity has changed successfully');
         header('location: ' . $_SERVER['PHP_SELF']);
         exit();

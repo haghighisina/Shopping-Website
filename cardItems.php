@@ -7,8 +7,7 @@ if(isLoggedIn()){setcookie('allProductsInCartForUser', json_encode($products), s
 require_once __DIR__.'/action/navbar_filter.php';?>
 <nav>
     <ul class="pagination justify-content-center">
-        <?php
-        for ($page=1;$page<=$number_of_page;$page++):;?>
+        <?php for ($page=1;$page<=$number_of_page;$page++):;?>
             <li class="page-item">
                 <a href='<?=escape($_SERVER['PHP_SELF']);?>?page=<?=escape($page);?>' class="page-link">Page ( <?= $page; ?> )</a>
             </li>

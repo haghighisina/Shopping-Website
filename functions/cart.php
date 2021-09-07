@@ -100,15 +100,16 @@ function deleteProductInCartForUserId(int $userId, int $productId):int{
     ];
     return (int)$statement->execute($data);
 }
-function updateCartItemsQuantity(int $quantity, int $product_price, int $product_id):bool{
+function updateCartItemsQuantity(int $quantity, int $product_price, int $product_id, int $user_id):bool{
     $sql = "UPDATE cart 
             SET quantity= :Quantity, product_price= :Product_price 
-            WHERE product_id= :ID";
+            WHERE product_id= :ID AND user_id= :userID";
     $statement = getDb()->prepare($sql);
     $data = [
         ':Quantity'=>$quantity,
         ':Product_price'=>$product_price,
-        ':ID'=>$product_id
+        ':ID'=>$product_id,
+        ':userID'=>$user_id
     ];
     return $statement->execute($data);
 }

@@ -1,0 +1,274 @@
+[2021-09-07 13:47:49 - INFO] http://localhost/
+Array
+(
+    [user_id] => 1120522142
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/1630493383.jpeg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 1
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 2
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 5
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 13:48:56 - INFO] http://localhost/Shopping-Cart/login.php
+Array
+(
+    [user_id] => 712273551
+    [user_ip] => 1
+    [user_rights] => ADMIN
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/1630493383.jpeg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 1
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 2
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 3
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 5
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 4
+                    [title] => Product 4
+                    [description] => Product Test 4
+                    [price] => 120000
+                    [pic] => asset/image/4.jpg
+                    [time] => 2021-07-22 13:21:27
+                    [category_id] => 
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 13:54:13 - INFO] http://localhost/Shopping-Cart/shopping_cart.php
+Array
+(
+    [user_id] => 1457592678
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => 
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 13:54:24 - INFO] http://localhost/Shopping-Cart/login.php
+Array
+(
+    [user_id] => 1300365891
+    [user_ip] => 1
+    [user_rights] => USER
+    [user_products] => Array
+        (
+            [0] => 
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 13:55:00 - INFO] http://localhost/Shopping-Cart/shopping_cart.php
+Array
+(
+    [user_id] => 1080127944
+    [user_ip] => 1
+    [user_rights] => anonymous
+    [user_products] => Array
+        (
+            [0] => 
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 13:55:09 - INFO] http://localhost/Shopping-Cart/login.php
+Array
+(
+    [user_id] => 460268583
+    [user_ip] => 1
+    [user_rights] => ADMIN
+    [user_products] => Array
+        (
+            [0] => 
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 14:07:01 - INFO] http://localhost/Shopping-Cart/shopping_cart.php
+Array
+(
+    [user_id] => 460268583
+    [user_ip] => 1
+    [user_rights] => ADMIN
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [product_id] => 2
+                    [user_id] => 460268583
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                    [product_price] => 100000
+                    [quantity] => 2
+                    [created] => 2021-09-07 16:36:52
+                )
+
+            [1] => stdClass Object
+                (
+                    [product_id] => 3
+                    [user_id] => 460268583
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                    [product_price] => 140000
+                    [quantity] => 1
+                    [created] => 2021-09-07 16:36:53
+                )
+
+            [2] => stdClass Object
+                (
+                    [product_id] => 1
+                    [user_id] => 460268583
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/1630493383.jpeg
+                    [product_price] => 60000
+                    [quantity] => 1
+                    [created] => 2021-09-07 16:36:55
+                )
+
+        )
+
+)
+
+****************************************************************************************************
+[2021-09-07 14:10:50 - INFO] http://localhost/
+Array
+(
+    [user_id] => 460268583
+    [user_ip] => 1
+    [user_rights] => ADMIN
+    [user_products] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [product_id] => 2
+                    [user_id] => 460268583
+                    [title] => Product 2
+                    [description] => Product Test 2
+                    [price] => 50000
+                    [pic] => asset/image/3.jpg
+                    [product_price] => 350000
+                    [quantity] => 7
+                    [created] => 2021-09-07 16:36:52
+                )
+
+            [1] => stdClass Object
+                (
+                    [product_id] => 3
+                    [user_id] => 460268583
+                    [title] => Product 3
+                    [description] => Product Test 3
+                    [price] => 140000
+                    [pic] => asset/image/2.jpg
+                    [product_price] => 560000
+                    [quantity] => 4
+                    [created] => 2021-09-07 16:36:53
+                )
+
+            [2] => stdClass Object
+                (
+                    [product_id] => 1
+                    [user_id] => 460268583
+                    [title] => Product 1
+                    [description] => Product Test 1
+                    [price] => 60000
+                    [pic] => asset/image/1630493383.jpeg
+                    [product_price] => 60000
+                    [quantity] => 1
+                    [created] => 2021-09-07 16:36:55
+                )
+
+        )
+
+)
+
+****************************************************************************************************
